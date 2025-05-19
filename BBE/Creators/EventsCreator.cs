@@ -31,18 +31,18 @@ namespace BBE.Creators
         private static void AddToFloors(RandomEvent randomEvent, int F1, int F2, int F3, int END) => AddToFloors(randomEvent, F1, F2, F3, F2, F3, END);
         public static void CreateEvents()
         {
-            
-            SoundObject sound = AssetsHelper.CreateSoundObject(AssetsHelper.AudioFromFile("Audio", "Events", "Starts", "BBE_TeleportationChaos.wav"), SoundType.Voice, Color.green, -1f, "BBE_Event_TeleportationChaos1");
+
+            /*SoundObject sound = AssetsHelper.CreateSoundObject(AssetsHelper.AudioFromFile("Audio", "Events", "Starts", "BBE_TeleportationChaos.wav"), SoundType.Voice, Color.green, -1f, "BBE_Event_TeleportationChaos1");
             sound = sound.AddAdditionalKey("BBE_Event_TeleportationChaos2", 1.2f).AddAdditionalKey("BBE_Event_TeleportationChaos3", 5.2f);
             RandomEvent randomEvent = new RandomEventBuilder<TeleportationChaosEvent>(BasePlugin.Instance.Info)
                 .SetMinMaxTime(30, 60)
                 .SetEnumAndName(ModdedRandomEvent.TeleportationChaos)
                 .SetSound(sound)
                 .Build();
-            AddToFloors(randomEvent, 0, 30, 60, 60);
+            AddToFloors(randomEvent, 0, 30, 60, 60);*/
 
-            sound = AssetsHelper.LoadAsset<SoundObject>("BAL_Event_Ruler");
-            randomEvent = new RandomEventBuilder<SoundEvent>(BasePlugin.Instance.Info)
+            SoundObject sound = AssetsHelper.LoadAsset<SoundObject>("BAL_Event_Ruler");
+            RandomEvent randomEvent = new RandomEventBuilder<SoundEvent>(BasePlugin.Instance.Info)
                 .SetMinMaxTime(50, 60)
                 .SetEnumAndName(ModdedRandomEvent.SoundEvent)
                 .SetSound(sound)
@@ -67,14 +67,14 @@ namespace BBE.Creators
                 .Build();
             AddToFloors(randomEvent, 0, 30, 50, 70);
             
-            sound = AssetsHelper.CreateSoundObject(AssetsHelper.AudioFromFile("Audio", "Events", "Starts", "BBE_FireEvent.wav"), SoundType.Voice, Color.green, -1f, "BBE_Event_Fire1");
+            /*sound = AssetsHelper.CreateSoundObject(AssetsHelper.AudioFromFile("Audio", "Events", "Starts", "BBE_FireEvent.wav"), SoundType.Voice, Color.green, -1f, "BBE_Event_Fire1");
             sound = sound.AddAdditionalKey("BBE_Event_Fire2", 1.3f).AddAdditionalKey("BBE_Event_Fire3", 5f);
             randomEvent = new RandomEventBuilder<FireEvent>(BasePlugin.Instance.Info)
                 .SetMinMaxTime(60, 90)
                 .SetEnumAndName(ModdedRandomEvent.FireEvent)
                 .SetSound(sound)
                 .Build();
-            AddToFloors(randomEvent, 0, 60, 0, 80);
+            AddToFloors(randomEvent, 0, 60, 0, 80);*/
         }
     }
 }

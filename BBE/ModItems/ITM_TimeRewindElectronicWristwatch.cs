@@ -10,13 +10,14 @@ namespace BBE.ModItems
 {
     public class ITM_TimeRewindElectronicWristwatch : Item
     {
+        public Sprite gaugeIcon;
         private Dictionary<NPC, List<Vector3>> positions = new Dictionary<NPC, List<Vector3>>() { };
         private List<Coroutine> npcCoroutines = new List<Coroutine>();
         public static bool used = false;
         public override bool Use(PlayerManager pm)
         {
             used = true;
-            StartCoroutine(Timer(5));
+            StartCoroutine(Timer(5, pm.playerNumber));
             return true;
         }
         void OnDestroy() => used = false;
@@ -44,8 +45,9 @@ namespace BBE.ModItems
             Destroy(gameObject);
             yield break;
         }
-        private IEnumerator Timer(float time)
+        private IEnumerator Timer(float time, int pm)
         {
+            HudGauge gauge = CoreGameManager.Instance.GetHud(pm).gaugeManager.ActivateNewGauge(gaugeIcon, time);
             float TimeLeft = time;
             while (TimeLeft > 0)
             {
@@ -58,8 +60,10 @@ namespace BBE.ModItems
                     positions[npc].Add(npc.gameObject.transform.position);
                 }
                 TimeLeft -= Time.deltaTime;
+                gauge.SetValue(time, TimeLeft);
                 yield return null;
             }
+            gauge.Deactivate();
             StartCoroutine(ReturnNPCsToOldPositions());
             yield break;
         }

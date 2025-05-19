@@ -12,6 +12,7 @@ namespace BBE.ModItems
 {
     public class ITM_GravityDevice : Item
     {
+        public Sprite gaugeIcon;
         private AudioManager audMan;
         private PlayerManager player;
         private List<NPC> toIgnore;
@@ -36,7 +37,7 @@ namespace BBE.ModItems
                 toIgnore.Add(npc);
             }
             StartCoroutine(FlipPlayer());
-            StartCoroutine(Timer(15));
+            StartCoroutine(Timer(15, pm.playerNumber));
             return true;
         }
         private IEnumerator FlipPlayer()
@@ -55,16 +56,19 @@ namespace BBE.ModItems
             }
             yield break;
         }
-        private IEnumerator Timer(float time)
+        private IEnumerator Timer(float time, int pm)
         {
+            HudGauge gauge = CoreGameManager.Instance.GetHud(pm).gaugeManager.ActivateNewGauge(gaugeIcon, time);
             float left = time;
             while (left > 0) 
             {
                 left -= Time.deltaTime * player.ec.EnvironmentTimeScale;
+                gauge.SetValue(time,left);
                 if (!audMan.AnyAudioIsPlaying && left < 3.9f)
                     audMan.PlaySingle("GravityDeviceTimer");
                 yield return null;
             }
+            gauge.Deactivate();
             Destroy(gameObject);
         }
         void OnDestroy()

@@ -38,6 +38,7 @@ namespace BBE.ModItems
             Destroy(gameObject);
             yield break;
         }
+
         private void Update()
         {
             angle += 120 * Time.deltaTime;
@@ -70,7 +71,7 @@ namespace BBE.ModItems
                 speed = 0;
                 renderer.gameObject.SetActive(false);
                 audMan.PlaySingle("Teleport");
-                StartCoroutine(Timer(0));
+                Destroy(gameObject);
             }
         }
 

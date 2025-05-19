@@ -72,8 +72,8 @@ namespace BBE.Creators
                 .SetItemComponent<ITM_Calculator>()
                 .SetNameAndDescription("BBE_Item_Calculator", "BBE_Item_Calculator_Desc")
                 .SetEnum(ModdedItems.Calculator)
-                .SetSmallSprite(AssetsHelper.CreateTexture("Textures", "Items", "BBE_Calculator.png").ToSprite())
-                .SetLargeSprite(AssetsHelper.CreateTexture("Textures", "Items", "BBE_Calculator.png").ToSprite(80f))
+                .SetSmallSprite(AssetsHelper.CreateTexture("Textures", "Items", "BBE_CalculatorSmall.png").ToSprite(25f))
+                .SetLargeSprite(AssetsHelper.CreateTexture("Textures", "Items", "BBE_CalculatorLarge.png").ToSprite(50f))
                 .SetGeneratorCost(60)
                 .SetShopPrice(350)
                 .BuildAndSetup();
@@ -85,21 +85,22 @@ namespace BBE.Creators
                 .SetItemComponent<ITM_GravityDevice>()
                 .SetNameAndDescription("BBE_Item_GravityDevice", "BBE_Item_GravityDevice_Desc")
                 .SetEnum(ModdedItems.GravityDevice)
-                .SetSmallSprite(AssetsHelper.CreateTexture("Textures", "Items", "BBE_GravityDevice.png").ToSprite())
-                .SetLargeSprite(AssetsHelper.CreateTexture("Textures", "Items", "BBE_GravityDevice.png").ToSprite(40f))
+                .SetSmallSprite(AssetsHelper.CreateTexture("Textures", "Items", "BBE_GravityDeviceSmall.png").ToSprite(25f))
+                .SetLargeSprite(AssetsHelper.CreateTexture("Textures", "Items", "BBE_GravityDeviceLarge.png").ToSprite(50f))
                 .SetGeneratorCost(60)
                 .SetShopPrice(350)
                 .SetMeta(ItemFlags.Persists, "technology")
                 .BuildAndSetup();
             AddToFloorsAndShop(item, 100, 100, 100, 100);
+            ((ITM_GravityDevice)item.item).gaugeIcon = item.itemSpriteSmall;
 
 
             item = new ItemBuilder(BasePlugin.Instance.Info)
                 .SetItemComponent<ITM_SpeedPotion>()
                 .SetNameAndDescription("BBE_Item_SpeedSerum", "BBE_Item_SpeedSerum_Desc")
                 .SetEnum(ModdedItems.PotionOfSpeed)
-                .SetSmallSprite(AssetsHelper.CreateTexture("Textures", "Items", "BBE_PotionOfSpeedSmall.png").ToSprite())
-                .SetLargeSprite(AssetsHelper.CreateTexture("Textures", "Items", "BBE_PotionOfSpeedLarge.png").ToSprite(40f))
+                .SetSmallSprite(AssetsHelper.CreateTexture("Textures", "Items", "BBE_PotionOfSpeedSmall.png").ToSprite(25f))
+                .SetLargeSprite(AssetsHelper.CreateTexture("Textures", "Items", "BBE_PotionOfSpeedLarge.png").ToSprite(50f))
                 .SetGeneratorCost(100)
                 .SetShopPrice(600)
                 .SetMeta(ItemFlags.Persists, "drink", "food")
@@ -107,27 +108,30 @@ namespace BBE.Creators
             item.GetMeta().tags.Add("BBE_StockfishReward2");
             AddToPartyEvent(item, 50);
             AddToFloorsAndShop(item, 80, 80, 80, 80);
+            ((ITM_SpeedPotion)item.item).gaugeIcon = item.itemSpriteSmall;
 
 
             item = new ItemBuilder(BasePlugin.Instance.Info)
                 .SetItemComponent<ITM_Shield>()
                 .SetNameAndDescription("BBE_Item_Shield", "BBE_Item_Shield_Desc")
                 .SetEnum(ModdedItems.Shield)
-                .SetSmallSprite(AssetsHelper.CreateTexture("Textures", "Items", "BBE_Shield.png").ToSprite())
-                .SetLargeSprite(AssetsHelper.CreateTexture("Textures", "Items", "BBE_Shield.png").ToSprite(500f))
+                .SetSmallSprite(AssetsHelper.CreateTexture("Textures", "Items", "BBE_ShieldSmall.png").ToSprite(25f))
+                .SetLargeSprite(AssetsHelper.CreateTexture("Textures", "Items", "BBE_ShieldLarge.png").ToSprite(50f))
                 .SetGeneratorCost(260)
                 .SetShopPrice(750)
                 .SetMeta(ItemFlags.Persists)
                 .BuildAndSetup();
             AddToShop(item, 60, 60, 60, 60);
+            ((ITM_Shield)item.item).gaugeIcon = item.itemSpriteSmall;
+
 
             //! Glue
             item = new ItemBuilder(BasePlugin.Instance.Info)
                 .SetItemComponent<ITM_Glue>()
                 .SetNameAndDescription("BBE_Item_Glue", "BBE_Item_Glue_Desc")
                 .SetEnum(ModdedItems.Glue)
-                .SetSmallSprite(AssetsHelper.CreateTexture("Textures", "Items", "BBE_GlueSmall.png").ToSprite())
-                .SetLargeSprite(AssetsHelper.CreateTexture("Textures", "Items", "BBE_GlueLarge.png").ToSprite(40))
+                .SetSmallSprite(AssetsHelper.CreateTexture("Textures", "Items", "BBE_GlueSmall.png").ToSprite(25f))
+                .SetLargeSprite(AssetsHelper.CreateTexture("Textures", "Items", "BBE_GlueLarge.png").ToSprite(50f))
                 .SetGeneratorCost(80)
                 .SetShopPrice(350)
                 .SetMeta(ItemFlags.Persists)
@@ -140,8 +144,8 @@ namespace BBE.Creators
                 .SetItemComponent<ITM_IceBomb>()
                 .SetNameAndDescription("BBE_Item_IceBomb", "BBE_Item_IceBomb_Desc")
                 .SetEnum(ModdedItems.IceBomb)
-                .SetSmallSprite(AssetsHelper.CreateTexture("Textures", "Items", "BBE_IceBomb.png").ToSprite())
-                .SetLargeSprite(AssetsHelper.CreateTexture("Textures", "Items", "BBE_IceBomb.png").ToSprite(40f))
+                .SetSmallSprite(AssetsHelper.CreateTexture("Textures", "Items", "BBE_IceBombSmall.png").ToSprite(25f))
+                .SetLargeSprite(AssetsHelper.CreateTexture("Textures", "Items", "BBE_IceBombLarge.png").ToSprite(50f))
                 .SetGeneratorCost(260)
                 .SetShopPrice(500)
                 .BuildAndSetup();
@@ -153,8 +157,8 @@ namespace BBE.Creators
                 .SetItemComponent<ITM_MagicRuby>()
                 .SetNameAndDescription("BBE_Item_MagicRuby", "BBE_Item_MagicRuby_Desc")
                 .SetEnum(ModdedItems.MagicRuby)
-                .SetSmallSprite(AssetsHelper.CreateTexture("Textures", "Items", "BBE_MagicRubySmall.png").ToSprite())
-                .SetLargeSprite(AssetsHelper.CreateTexture("Textures", "Items", "BBE_MagicRubyLarge.png").ToSprite(40f))
+                .SetSmallSprite(AssetsHelper.CreateTexture("Textures", "Items", "BBE_MagicRubySmall.png").ToSprite(25f))
+                .SetLargeSprite(AssetsHelper.CreateTexture("Textures", "Items", "BBE_MagicRubyLarge.png").ToSprite(50f))
                 .SetGeneratorCost(160)
                 .SetShopPrice(750)
                 .BuildAndSetup();
@@ -166,8 +170,8 @@ namespace BBE.Creators
                 .SetItemComponent<ITM_StrawberryZestyBar>()
                 .SetNameAndDescription("BBE_Item_StrawberryZestyBar", "BBE_Item_StrawberryZestyBar_Desc")
                 .SetEnum(ModdedItems.StrawberryZestyBar)
-                .SetSmallSprite(AssetsHelper.CreateTexture("Textures", "Items", "BBE_StrawberryZestyBarSmall.png").ToSprite())
-                .SetLargeSprite(AssetsHelper.CreateTexture("Textures", "Items", "BBE_StrawberryZestyBarLarge.png").ToSprite(40f))
+                .SetSmallSprite(AssetsHelper.CreateTexture("Textures", "Items", "BBE_StrawberryZestyBarSmall.png").ToSprite(25f))
+                .SetLargeSprite(AssetsHelper.CreateTexture("Textures", "Items", "BBE_StrawberryZestyBarLarge.png").ToSprite(50f))
                 .SetGeneratorCost(100)
                 .SetShopPrice(350)
                 .SetMeta(ItemFlags.Persists, "food", "BBE_StockfishReward1")
@@ -181,8 +185,8 @@ namespace BBE.Creators
             dsoda.item.gameObject.AddComponent<ITM_DSODA>();
             dsoda.descKey = "BBE_Item_DSODA_Desc";
             dsoda.price = int.MaxValue;
-            dsoda.itemSpriteSmall = AssetsHelper.CreateTexture("Textures", "Items", "BBE_DSODA.png").ToSprite();
-            dsoda.itemSpriteLarge = AssetsHelper.CreateTexture("Textures", "Items", "BBE_DSODA.png").ToSprite(40);
+            dsoda.itemSpriteSmall = AssetsHelper.CreateTexture("Textures", "Items", "BBE_DSodaSmall.png").ToSprite(25f);
+            dsoda.itemSpriteLarge = AssetsHelper.CreateTexture("Textures", "Items", "BBE_DSodaLarge.png").ToSprite(50f);
             dsoda.itemType = ModdedItems.DSODA.ToItemsEnum();
             ItemMetaData data = dsoda.AddMeta(BasePlugin.Instance, ItemFlags.CreatesEntity | ItemFlags.Persists);
             data.tags.AddRange(ItemMetaStorage.Instance.FindByEnum(Items.Bsoda).tags);
@@ -215,6 +219,7 @@ namespace BBE.Creators
             AddToShop(item, 50, 45, 40, 40);
             AddToFloors(item, 55, 50, 50, 60);
             AddToMysteryRoom(item, 30);
+            ((ITM_TimeRewindElectronicWristwatch)item.item).gaugeIcon = item.itemSpriteSmall;
 
 
             new ItemBuilder(BasePlugin.Instance.Info)
@@ -231,14 +236,16 @@ namespace BBE.Creators
                 .SetItemComponent<ITM_XRayGoggles>()
                 .SetNameAndDescription("BBE_Item_XrayGoggles", "BBE_Item_XrayGoggles_Desc")
                 .SetEnum(ModdedItems.XrayGoggles)
-                .SetSmallSprite(AssetsHelper.CreateTexture("Textures", "Items", "BBE_XrayGoggles.png").ToSprite())
-                .SetLargeSprite(AssetsHelper.CreateTexture("Textures", "Items", "BBE_XrayGoggles.png").ToSprite(40f))
+                .SetSmallSprite(AssetsHelper.CreateTexture("Textures", "Items", "BBE_XrayGogglesSmall.png").ToSprite(25f))
+                .SetLargeSprite(AssetsHelper.CreateTexture("Textures", "Items", "BBE_XrayGogglesLarge.png").ToSprite(50f))
                 .SetGeneratorCost(50)
                 .SetShopPrice(500)
                 .SetMeta(ItemFlags.Persists)
                 .BuildAndSetup();/*
             AddToShop(item, 10, 15, 20, 30);
             AddToFloors(item, 15, 20, 20, 30);*/
+            ((ITM_XRayGoggles)item.item).gaugeIcon = item.itemSpriteSmall;
+
 
             new ItemBuilder(BasePlugin.Instance.Info)
                 .SetItemComponent<ITM_RubyClock>()

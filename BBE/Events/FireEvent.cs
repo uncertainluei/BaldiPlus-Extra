@@ -62,7 +62,7 @@ namespace BBE.Events
             fires.Clear();
             npcs.Do(x =>
             {
-                if (x.Key != null) 
+                if (x.Key != null && x.Key.looker != null) 
                     x.Key.looker.distance = x.Value;
             });
             index--;

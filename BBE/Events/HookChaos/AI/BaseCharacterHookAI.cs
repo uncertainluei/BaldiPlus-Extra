@@ -62,7 +62,7 @@ namespace BBE.Events.HookChaos.AI
 
         protected virtual bool ShootingIsAllowed()
         {
-            return npc.looker.PlayerInSight();
+            return npc.looker != null && npc.looker.PlayerInSight();
         }
 
         protected virtual void ShootHook()

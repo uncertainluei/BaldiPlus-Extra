@@ -41,7 +41,7 @@
 {"key":"BBE_Item_ChessBook","value":"Stockfish's Chess Book"},
 {"key":"BBE_Item_ChessBook_Desc","value":"Stockfish's Chess Book\nA chess book containing solutions for all puzzles by Stockfish!\nHe chose to write this book to assist students in learning chess moves!"},
 {"key":"BBE_Item_MagicSwapCard","value":"Magic Card"},
-{"key":"BBE_Item_MagicSwapCard_Desc","value":"Magic Card\nIn our school was one funny student, he very loved magic tricks\nOne day he forgot his magic card, this is one of them\nHe used it to throw it to someone and <b>swap</b> with them"},
+{"key":"BBE_Item_MagicSwapCard_Desc","value":"Magic Card\nCreated by a student who loved doing magic tricks!\nUnfortunately, he had lost it after a day of school.\nPerhaps use it to throw it at someone and <b>swap</b> places with them!"},
 {"key":"BBE_Item_NoSign","value":"Sign \"NO\""},
 {"key":"BBE_Item_NoSign_Desc","value":"Sign \"NO\"\nFew days ago random student stole this sign from forest\n.Everyone think this sign is danger, so they just avoid it"},
 {"key":"BBE_Item_BaldiDashPad","value":"Baldi's Dashing Pad"},

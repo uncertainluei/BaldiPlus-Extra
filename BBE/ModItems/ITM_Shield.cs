@@ -8,6 +8,7 @@ namespace BBE.ModItems
 {
     public class ITM_Shield : Item
     {
+        public Sprite gaugeIcon;
         public GameObject canvas;
         // Makes the player invincible to Baldi
         public override bool Use(PlayerManager pm)
@@ -17,9 +18,9 @@ namespace BBE.ModItems
                 return false;
             }
             used = true;
-            CoreGameManager.Instance.GetPlayer(0).invincible = true;
+            CoreGameManager.Instance.GetPlayer(pm.playerNumber).invincible = true;
             StartCoroutine(CanvasEffect(true));
-            StartCoroutine(EndShield());
+            StartCoroutine(EndShield(20, pm.playerNumber));
             return true;
         }
         private IEnumerator CanvasEffect(bool state)
@@ -66,16 +67,19 @@ namespace BBE.ModItems
                 }
             }
         }
-        private IEnumerator EndShield()
+        private IEnumerator EndShield(float time, int pm)
         {
+            HudGauge gauge = CoreGameManager.Instance.GetHud(pm).gaugeManager.ActivateNewGauge(gaugeIcon, time);
             float TimeLeft = 20f;
             while (TimeLeft > 0)
             {
                 TimeLeft -= Time.deltaTime;
+                gauge.SetValue(time, TimeLeft);
                 yield return null;
             }
-            CoreGameManager.Instance.GetPlayer(0).invincible = false;
+            CoreGameManager.Instance.GetPlayer(pm).invincible = false;
             StartCoroutine(CanvasEffect(false));
+            gauge.Deactivate();
             yield break;
         }
         void OnDestroy()

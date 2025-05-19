@@ -13,6 +13,8 @@ namespace BBE.ModItems
 {
     class ITM_XRayGoggles : Item
     {
+        public Sprite gaugeIcon;
+
         private EnvironmentController ec;
         private Dictionary<Fog, float> fogs = new Dictionary<Fog, float>();
         private static GameObject canvas;
@@ -24,20 +26,23 @@ namespace BBE.ModItems
             fogs.Clear();
             ec = pm.ec;
             ec.fogs.Do(x => fogs.Add(x, x.strength));
-            StartCoroutine(Timer(WorkingTime));
+            StartCoroutine(Timer(WorkingTime, pm.playerNumber));
             return true;
         }
-        private IEnumerator Timer(float time)
+        private IEnumerator Timer(float time, int pm)
         {
             yield return StartCoroutine(Use());
+            HudGauge gauge = CoreGameManager.Instance.GetHud(pm).gaugeManager.ActivateNewGauge(gaugeIcon, time);
             float timeLeft = time;
             while (timeLeft > 0) 
             {
                 timeLeft -= Time.deltaTime * ec.EnvironmentTimeScale;
+                gauge.SetValue(time, timeLeft);
                 yield return null;
             }
             yield return StartCoroutine(Disable());
             DestroyCanvas();
+            gauge.Deactivate();
             Destroy(gameObject);
             yield break;
         }
