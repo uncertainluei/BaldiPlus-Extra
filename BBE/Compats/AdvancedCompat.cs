@@ -1,6 +1,4 @@
-﻿#if false
-
-using BaldisBasicsPlusAdvanced.API;
+﻿using BaldisBasicsPlusAdvanced.API;
 using BaldisBasicsPlusAdvanced.Cache;
 using BaldisBasicsPlusAdvanced.Game.Objects.Spelling;
 using BBE.Extensions;
@@ -104,4 +102,3 @@ namespace BBE.Compats
         }  
     }
 }
-#endif

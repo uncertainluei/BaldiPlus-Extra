@@ -22,6 +22,9 @@
 		<Reference Include="Assembly-CSharp" Publicize="true">
 			<HintPath>..\Dependencies\Assembly-CSharp.dll</HintPath>
 		</Reference>
+		<Reference Include="BaldisBasicsPlusAdvanced" Publicize="true">
+			<HintPath>..\Dependencies\BaldisBasicsPlusAdvanced.dll</HintPath>
+		</Reference>
 		<Reference Include="BaldiLevelEditor" Publicize="true">
 			<HintPath>..\Dependencies\BaldiLevelEditor.dll</HintPath>
 		</Reference>

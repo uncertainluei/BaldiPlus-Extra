@@ -18,6 +18,7 @@ namespace BBE.NPCs
 {
     public class Stockfish : NPC, INPCPrefab
     {
+        public Sprite punishmentGaugeIcon;
         private PlayerManager playerManager;
         private bool disableWalkingAnim = false;
         private MovementModifier moveMod;
@@ -40,6 +41,7 @@ namespace BBE.NPCs
         public void SetupAssets()
         {
             audMan = GetComponent<AudioManager>();
+            punishmentGaugeIcon = AssetsHelper.CreateTexture("Textures", "NPCs", "Stockfish", "BBE_StockfishPunishementStatus.png").ToSprite();
             walking = AssetsHelper.CreateSpriteSheet(4, 1, 45, "Textures", "NPCs", "Stockfish", "BBE_StockfishWalking.png");
             hit = AssetsHelper.CreateSpriteSheet(3, 1, 55, "Textures", "NPCs", "Stockfish", "BBE_StockfishPunishment.png");
             spriteRenderer[0].sprite = walking[1];
@@ -56,6 +58,9 @@ namespace BBE.NPCs
                 Destroy(canvas);
             if (moveMod != null)
                 pm.Am.moveMods.Remove(moveMod);
+
+            HudGauge gauge = CoreGameManager.Instance.GetHud(pm.playerNumber).gaugeManager.ActivateNewGauge(punishmentGaugeIcon, time);
+
             moveMod = new MovementModifier(default, 0.8f);
             pm.Am.moveMods.Add(moveMod);
             float left = time;
@@ -94,10 +99,12 @@ namespace BBE.NPCs
                 color.a = a;
                 Image.color = color;
                 left -= Time.deltaTime * ec.EnvironmentTimeScale;
+                gauge.SetValue(time, left);
                 yield return null;
             }
             pm.Am.moveMods.Remove(moveMod);
             moveMod = null;
+            gauge.Deactivate();
             Destroy(canvas);
             yield break;
         }

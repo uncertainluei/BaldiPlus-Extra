@@ -55,7 +55,7 @@ namespace BBE.Compats
         public static void CallPostfixes() => compats.Do(x => x.Postfix());
         public static void CreateCompats()
         {
-            //new AdvancedCompat();
+            new AdvancedCompat();
             new EditorCompat.EditorCompat();
             new LevelLoaderCompat(true);
             //new AchievementsCompat();
