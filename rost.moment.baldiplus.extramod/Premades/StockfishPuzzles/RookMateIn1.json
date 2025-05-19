@@ -1,0 +1,11 @@
+{
+  "pieces": [
+    { "Item1": "Rook", "Item2": "h8", "Item3": true },
+    { "Item1": "King", "Item2": "a5", "Item3": false },
+    { "Item1": "King", "Item2": "c5", "Item3": true }
+  ],
+  "moves": [
+    { "Item1": "H8", "Item2": "A8" }
+  ],
+  "playerIsWhite": true
+}

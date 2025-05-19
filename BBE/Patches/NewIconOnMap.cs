@@ -68,27 +68,16 @@ namespace BBE.Patches
                     if (notebook == null) continue;
                     if (notebook.activity && !notebook.activity.GetType().Equals(typeof(NoActivity)) && (BBEConfigs.MathMachineIcon == 1 || BBEConfigs.MathMachineIcon == 2))
                     {
-                        Sprite sprite = AssetsHelper.CreateTexture("Textures", "MapIcons", "BBE_MathMachine.png").ToSprite(22f);
-                        if (BBEConfigs.MathMachineIcon == 2) sprite = AssetsHelper.CreateTexture("Textures", "MapIcons", "BBE_MathMachineNew.png").ToSprite(22f); // Thanks for icon to Bendabest19
+                        Sprite sprite = AssetsHelper.CreateTexture("Textures", "MapIcons", "BBE_MathMachine.png").ToSprite(16f);
+                        if (BBEConfigs.MathMachineIcon == 2) sprite = AssetsHelper.CreateTexture("Textures", "MapIcons", "BBE_MathMachineNew.png").ToSprite(16f); // Thanks for icon to Bendabest19
                         icon.spriteRenderer.sprite = sprite;
                     }
                 }
-                /*if (!icon.target.IsNull())
-                {
-                    Pickup pickup = icon.target.GetComponent<Pickup>();
-                    if (!pickup.IsNull())
-                    {
-                        if (pickup.item.itemType == Items.Points)
-                        {
-                            icon.spriteRenderer.sprite = AssetsHelper.TextureFromFile("Textures", "MapIcons", "Points.png").ToSprite(70f);
-                        }
-                    }
-                }*/
             }
             CreateMapMaterial(RoomCategory.FieldTrip, "BBE_FieldTripBG.png");
-            CreateMapMaterial(RoomCategory.Class, "BBE_ClassBG.png");
-            CreateMapMaterial(RoomCategory.Faculty, "BBE_FacultyBG.png");
-            CreateMapMaterial(RoomCategory.Office, "BBE_PrincipalRoomBG.png");
+            //CreateMapMaterial(RoomCategory.Class, "BBE_ClassBG.png");
+            //CreateMapMaterial(RoomCategory.Faculty, "BBE_FacultyBG.png");
+            //CreateMapMaterial(RoomCategory.Office, "BBE_PrincipalRoomBG.png");
             CreateMapMaterial("Cafeteria", "BBE_CafeteriaBG.png");
         }
         [HarmonyPatch(typeof(Pickup), "Start")]

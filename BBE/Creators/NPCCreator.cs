@@ -14,17 +14,22 @@ namespace BBE.Creators
     {
         private static void MakeForced(NPC npc, params string[] floors) =>
             floors.Do(x => FloorData.Get(x)?.forcedNPCs.Add(npc));
-        private static void AddToFloors(NPC npc, int F1, int F2, int F3, int END)
+        private static void AddToFloors(NPC npc, int F1, int F2, int F3, int F4, int F5, int END)
         {
             if (F1 > 0)
                 FloorData.Get("F1").potentialNPCs.Add(new WeightedNPC() { selection = npc, weight = F1 });
             if (F2 > 0)
-                FloorData.Get("F2").potentialNPCs.Add(new WeightedNPC() { selection = npc, weight = F1 });
+                FloorData.Get("F2").potentialNPCs.Add(new WeightedNPC() { selection = npc, weight = F2 });
             if (F3 > 0)
-                FloorData.Get("F3").potentialNPCs.Add(new WeightedNPC() { selection = npc, weight = F1 });
+                FloorData.Get("F3").potentialNPCs.Add(new WeightedNPC() { selection = npc, weight = F3 });
+            if (F4 > 0)
+                FloorData.Get("F2").potentialNPCs.Add(new WeightedNPC() { selection = npc, weight = F4 });
+            if (F5 > 0)
+                FloorData.Get("F3").potentialNPCs.Add(new WeightedNPC() { selection = npc, weight = F5 });
             if (END > 0)
-                FloorData.Get("END").potentialNPCs.Add(new WeightedNPC() { selection = npc, weight = F1 });
+                FloorData.Get("END").potentialNPCs.Add(new WeightedNPC() { selection = npc, weight = END });
         }
+        private static void AddToFloors(NPC npc, int F1, int F2, int F3, int END) => AddToFloors(npc, F1, F2, F3, F2, F3, END);
 
         public static void CreateNPCs()
         {
@@ -37,7 +42,7 @@ namespace BBE.Creators
                 .BuildAndSetup();
             AddToFloors(npc, 0, 50, 100, 200);
 
-            new NPCBuilder<FuckingSnail>(BasePlugin.Instance.Info)
+            new NPCBuilder<Snail>(BasePlugin.Instance.Info)
                 .SetNameAndEnum(ModdedCharacters.Snail)
                 .SetMetaName("BBE_Snail")
                 .SetPoster(AssetsHelper.CreateTexture("Textures", "NPCs", "Snail", "BBE_PosterSnail.png"), "BBE_Snail", "BBE_Snail_Desc")

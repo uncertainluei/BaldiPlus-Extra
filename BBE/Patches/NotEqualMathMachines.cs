@@ -104,10 +104,10 @@ namespace BBE.Patches
             if (!__instance.playerIsHolding[player] || !machines.Contains(__instance)) return;
             if (__instance.playerHolding[player] == __instance.answer)
             {
-                CompatsHelper.TryRunAction("rost.moment.baldiplus.achievements", () =>
-                {
-                    BBAchievements.Achievement.Get("BBE_BBA_Trolled").Unlock();
-                });
+                //CompatsHelper.TryRunAction("rost.moment.baldiplus.achievements", () =>
+                //{
+                //    BBAchievements.Achievement.Get("BBE_BBA_Trolled").Unlock();
+                //});
                 __instance.answer = __instance.currentNumbers.Where(x => x.Value != __instance.answer).ChooseRandom().Value;
             }
             else

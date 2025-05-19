@@ -13,17 +13,22 @@ namespace BBE.Creators
 {
     class EventsCreator
     {
-        private static void AddToFloors(RandomEvent randomEvent, int F1, int F2, int F3, int END)
+        private static void AddToFloors(RandomEvent randomEvent, int F1, int F2, int F3, int F4, int F5, int END)
         {
             if (F1 > 0)
                 FloorData.Get("F1").randomEvents.Add(new WeightedRandomEvent() { selection = randomEvent, weight = F1 });
             if (F2 > 0)
-                FloorData.Get("F2").randomEvents.Add(new WeightedRandomEvent() { selection = randomEvent, weight = F1 });
+                FloorData.Get("F2").randomEvents.Add(new WeightedRandomEvent() { selection = randomEvent, weight = F2 });
             if (F3 > 0)
-                FloorData.Get("F3").randomEvents.Add(new WeightedRandomEvent() { selection = randomEvent, weight = F1 });
+                FloorData.Get("F3").randomEvents.Add(new WeightedRandomEvent() { selection = randomEvent, weight = F3 });
+            if (F4 > 0)
+                FloorData.Get("F4").randomEvents.Add(new WeightedRandomEvent() { selection = randomEvent, weight = F4 });
+            if (F5 > 0)
+                FloorData.Get("F5").randomEvents.Add(new WeightedRandomEvent() { selection = randomEvent, weight = F5 });
             if (END > 0)
-                FloorData.Get("END").randomEvents.Add(new WeightedRandomEvent() { selection = randomEvent, weight = F1 });
+                FloorData.Get("END").randomEvents.Add(new WeightedRandomEvent() { selection = randomEvent, weight = END });
         }
+        private static void AddToFloors(RandomEvent randomEvent, int F1, int F2, int F3, int END) => AddToFloors(randomEvent, F1, F2, F3, F2, F3, END);
         public static void CreateEvents()
         {
             

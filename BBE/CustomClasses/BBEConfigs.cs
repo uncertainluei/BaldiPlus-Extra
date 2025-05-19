@@ -51,10 +51,10 @@ namespace BBE.CustomClasses
         public static void Initialize()
         {
             ConfigFile = new ConfigFile(Paths.ConfigPath + "/rost.moment.baldiplus.extramod.cfg", true);
-            ExtendedCounterTextConfig = ConfigFile.Bind("Visual", "Extended Counter", true, "If true, notebook/elevator counters will have 'Notebooks' or 'Elevators' text");
+            ExtendedCounterTextConfig = ConfigFile.Bind("Visual", "Extended Counter", false, "If true, notebook/elevator counters will have 'Notebooks' or 'Elevators' text");
             TinnitusSoundEventConfig = ConfigFile.Bind("Visual", "Tinnitus Sound Event", false, "If true, sound event will have tinnitus effect");
             ShowDescriptionEverywhereConfig = ConfigFile.Bind("Visual", "Show Description Everywhere", false, "If true, you will be able see item descriptions when you hover them");
-            OverrideMathMachineIconConfig = ConfigFile.Bind("Visual", "Override Math Machine Icon", 1, "0 - don't override icon\n1 - Letter M icon\n 2 - Machine icon");
+            OverrideMathMachineIconConfig = ConfigFile.Bind("Visual", "Override Math Machine Icon", 2, "0 - don't override icon\n1 - Letter M icon\n 2 - Machine icon");
             ForcedPlayButtonConfig = ConfigFile.Bind("Gameplay", "Forced Play Button", false, "If true, play button will appear when generator crash");
             OldStockfishConfig = ConfigFile.Bind("Gameplay", "Old Stockfish", false, "If true, stockfish won't give item reward and will give punishment if you fail puzzle. Just like old Stockfish!");
         }

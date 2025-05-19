@@ -1,9 +1,4 @@
-﻿using BaldiLevelEditor;
-using BBE.CustomClasses;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using static BBE.Compats.EditorCompat.EditorPatches;
+﻿using BBE.CustomClasses;
 
 namespace BBE.Compats.EditorCompat
 {

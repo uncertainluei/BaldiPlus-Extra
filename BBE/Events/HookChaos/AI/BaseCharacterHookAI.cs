@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using BBE.Extensions;
-using Unity.Mathematics;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace BBE.Events.HookChaos.AI
 {

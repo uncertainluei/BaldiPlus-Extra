@@ -1,0 +1,18 @@
+{
+  "pieces": [
+    { "Item1": "Bishop", "Item2": "G8", "Item3": false },
+    { "Item1": "King", "Item2": "H8", "Item3": false },
+    { "Item1": "Pawn", "Item2": "H7", "Item3": false },
+    { "Item1": "Pawn", "Item2": "G7", "Item3": false },
+    { "Item1": "Rook", "Item2": "C8", "Item3": false },
+    { "Item1": "King", "Item2": "H1", "Item3": true },
+    { "Item1": "Knight", "Item2": "H6", "Item3": true },
+    { "Item1": "Queen", "Item2": "D5", "Item3": true }
+  ],
+  "moves": [
+    { "Item1": "D5", "Item2": "G8" },
+    { "Item1": "C8", "Item2": "G8" },
+    { "Item1": "H6", "Item2": "F7" }
+  ],
+  "playerIsWhite": true
+}

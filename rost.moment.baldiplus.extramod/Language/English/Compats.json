@@ -1,0 +1,46 @@
+{"items":[
+  {
+    "key": "BBE_adv_tip_1",
+    "value": "Game is boring for you? Try to play it with <color=red>f</color><color=yellow>u</color><color=green>n</color> settings to get a lot of fun!"
+  },
+  {
+    "key": "BBE_adv_tip_2",
+    "value": "Don't underestimate calculator, with it you can almost instantly answer a question without even knowing it"
+  },
+  {
+    "key": "BBE_adv_tip_3",
+    "value": "Use stockfish's chess book for seeing right moves for chess puzzles!"
+  },
+  {
+    "key": "BBE_adv_tip_4",
+    "value": "Surrounded by fire during an event? Use any type of BSODA to extinguish it"
+  },
+  {
+    "key": "BBE_adv_tip_5",
+    "value": "You can hide from Kulak in any room, he is fully blind"
+  },
+  {
+    "key": "BBE_BBA_TAS",
+    "value": "TAS"
+  },
+  {
+    "key": "BBE_BBA_TAS_DESC",
+    "value": "Win the game with as many active fun\nsettings as possible (use max button)\nWith no PineDebug, UnityExplorer and KeyCheats"
+  },
+  {
+    "key": "BBE_BBA_Trolled",
+    "value": "You've been trolled"
+  },
+  {
+    "key": "BBE_BBA_Trolled_Desc",
+    "value": "Be tricked by not equal math machine"
+  },
+  {
+    "key": "BBE_BBA_Screensaveer",
+    "value": "Screensaver"
+  },
+  {
+    "key": "BBE_BBA_Screensaveer_Desc",
+    "value": "Beat DVD Mode"
+  }
+ ]}

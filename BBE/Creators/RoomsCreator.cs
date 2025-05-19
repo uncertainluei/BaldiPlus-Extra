@@ -100,7 +100,7 @@ namespace BBE.Creators
                 roomAsset.eventSafeCells = new List<IntVector2>(collection);
                 roomAsset.forcedDoorPositions = new List<IntVector2>(lvlAsset.rooms[i].forcedDoorPositions);
                 roomAsset.hasActivity = lvlAsset.rooms[i].hasActivity;
-                roomAsset.itemList = new List<WeightedItemObject>(lvlAsset.rooms[i].itemList);
+                roomAsset.itemList = new List<ItemObject>(lvlAsset.rooms[i].itemList);
                 roomAsset.items = new List<ItemData>(lvlAsset.rooms[i].items);
                 roomAsset.keepTextures = keepTextures;
                 roomAsset.ceilTex = lvlAsset.rooms[i].ceilTex;

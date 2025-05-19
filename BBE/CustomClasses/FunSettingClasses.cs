@@ -28,7 +28,7 @@ namespace BBE.CustomClasses
         {
             base.OnWin(placeholderWin);
             BBESave.Instance.AddAttribute("DVDMode_Beaten");
-            BaseCompat.Get<AchievementsCompat>()?.Unlock("BBE_BBA_Screensaveer");
+            //BaseCompat.Get<AchievementsCompat>()?.Unlock("BBE_BBA_Screensaveer");
         }
         public override void OnReturnToMenu()
         {
@@ -72,7 +72,7 @@ namespace BBE.CustomClasses
             {
                 if (CoreGameManager.Instance.GetPlayer(0).itm.slotLocked[i]) continue;
                 CoreGameManager.Instance.GetPlayer(0).itm.SetItem(ItemMetaStorage.Instance.FindAll
-                    (x => x.flags != ItemFlags.NoInventory && x.flags != ItemFlags.InstantUse && !x.tags.Contains("BBE_IgnoreRandomItemsFunSetting")).ChooseRandom().value, i);
+                    (x => x.flags != ItemFlags.InstantUse && !x.tags.Contains("BBE_IgnoreRandomItemsFunSetting")).ChooseRandom().value, i);
             }
         }
         public override void OnBaseGameManagerInitialize(BaseGameManager baseGameManager)

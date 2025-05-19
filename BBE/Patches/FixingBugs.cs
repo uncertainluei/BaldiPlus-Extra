@@ -1,11 +1,7 @@
 ﻿using BBE.CustomClasses;
 using BBE.Extensions;
 using HarmonyLib;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using Unity.Mathematics;
 using UnityEngine;
 
 namespace BBE.Patches

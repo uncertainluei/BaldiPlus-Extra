@@ -121,7 +121,7 @@ namespace BBE.Patches
         [HarmonyPostfix]
         private static void OnBeginPlay(EnvironmentController __instance) => FunSetting.AllActives().Do(x => x.OnECBeginPlay(__instance));
 
-        [HarmonyPatch(typeof(PlayerManager), nameof(PlayerManager.SetInvisible))]
+        [HarmonyPatch(typeof(PlayerManager), nameof(PlayerManager.SetHidden))]
         [HarmonyPostfix]
         private static void OnPlayerInvisible(PlayerManager __instance, bool value) => FunSetting.AllActives().Do(x => x.OnPlayerInvisible(__instance, value));
 

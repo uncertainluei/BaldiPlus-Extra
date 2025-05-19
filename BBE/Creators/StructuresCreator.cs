@@ -31,7 +31,7 @@ namespace BBE.Creators
             };
             AddForcedStructure(structure, floors);
         }
-        private static void AddCustomSwingDoor(GameObject door, int F1, int F2, int F3, int END)
+        private static void AddCustomSwingDoor(GameObject door, int F1, int F2, int F3, int F4, int F5, int END)
         {
             if (F1 > 0)
                 FloorData.Get("F1").customSwingDoors.Add(new WeightedGameObject() { selection = door, weight = F1 });
@@ -39,9 +39,14 @@ namespace BBE.Creators
                 FloorData.Get("F2").customSwingDoors.Add(new WeightedGameObject() { selection = door, weight = F2 });
             if (F3 > 0)
                 FloorData.Get("F3").customSwingDoors.Add(new WeightedGameObject() { selection = door, weight = F3 });
+            if (F4 > 0)
+                FloorData.Get("F4").customSwingDoors.Add(new WeightedGameObject() { selection = door, weight = F4 });
+            if (F5 > 0)
+                FloorData.Get("F5").customSwingDoors.Add(new WeightedGameObject() { selection = door, weight = F5 });
             if (END > 0)
                 FloorData.Get("END").customSwingDoors.Add(new WeightedGameObject() { selection = door, weight = END });
         }
+        private static void AddCustomSwingDoor(GameObject door, int F1, int F2, int F3, int END) => AddCustomSwingDoor(door, F1, F2, F3, F2, F3, END);
         public static void CreateStructures()
         {
             AddCustomSwingDoor(YTPDoor.Create(), 0, 10, 10, 10);
@@ -49,7 +54,7 @@ namespace BBE.Creators
             AddForcedVendingMachine(new (string name, int weight)[]
             {
                 ("StrawberryZestyBarMachine", 100)
-            }, 1, 2, "F2", "END");
+            }, 1, 2, "F2", "F4", "END");
         }
     }
 }

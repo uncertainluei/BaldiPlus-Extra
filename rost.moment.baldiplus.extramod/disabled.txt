@@ -1,0 +1,4 @@
+If for some reason you want to disable generation of items, events or characters, write here enum of item/character/event that you want to disable, each enum with a new line
+All enums are located here: https://github.com/Rostmoment/BaldiBasicsExtra/blob/bfa17dcf59ce8c5984c6978fca5281ffb5ea3a0c/BBE/Extensions/Enums.cs#L4
+Text that is not enum will be ignored
+If link doesn't work you can say about it on gamebanana

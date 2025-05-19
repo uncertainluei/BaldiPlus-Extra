@@ -22,33 +22,45 @@ namespace BBE.Creators
                 floorData.partyEventItems.Add(new WeightedItemObject() { selection = itemObject, weight = weight });
             }
         }
-        private static void AddToFloorsAndShop(ItemObject itemObject, int F1, int F2, int F3, int END)
+        private static void AddToFloorsAndShop(ItemObject itemObject, int F1, int F2, int F3, int F4, int F5, int END)
         {
-            AddToFloors(itemObject, F1, F2, F3, END);
-            AddToShop(itemObject, F1, F2, F3, END);
+            AddToFloors(itemObject, F1, F2, F3, F4, F5, END);
+            AddToShop(itemObject, F1, F2, F3, F4, F5, END);
         }
-        private static void AddToShop(ItemObject itemObject, int F1, int F2, int F3, int END)
+        private static void AddToFloorsAndShop(ItemObject itemObject, int F1, int F2, int F3, int END) => AddToFloorsAndShop(itemObject, F1, F2, F3, F2, F3, END);
+
+        private static void AddToShop(ItemObject itemObject, int F1, int F2, int F3, int F4, int F5, int END)
         {
             if (F1 > 0)
                 FloorData.Get("F1").shopItems.Add(new WeightedItemObject() { selection = itemObject, weight = F1 });
             if (F2 > 0)
-                FloorData.Get("F2").shopItems.Add(new WeightedItemObject() { selection = itemObject, weight = F1 });
+                FloorData.Get("F2").shopItems.Add(new WeightedItemObject() { selection = itemObject, weight = F2 });
             if (F3 > 0)
-                FloorData.Get("F3").shopItems.Add(new WeightedItemObject() { selection = itemObject, weight = F1 });
+                FloorData.Get("F3").shopItems.Add(new WeightedItemObject() { selection = itemObject, weight = F3 });
+            if (F4 > 0)
+                FloorData.Get("F2").shopItems.Add(new WeightedItemObject() { selection = itemObject, weight = F4 });
+            if (F5 > 0)
+                FloorData.Get("F3").shopItems.Add(new WeightedItemObject() { selection = itemObject, weight = F5 });
             if (END > 0)
-                FloorData.Get("END").shopItems.Add(new WeightedItemObject() { selection = itemObject, weight = F1 });
+                FloorData.Get("END").shopItems.Add(new WeightedItemObject() { selection = itemObject, weight = END });
         }
-        private static void AddToFloors(ItemObject itemObject, int F1, int F2, int F3, int END)
+        private static void AddToShop(ItemObject itemObject, int F1, int F2, int F3, int END) => AddToShop(itemObject, F1, F2, F3, F2, F3, END);
+        private static void AddToFloors(ItemObject itemObject, int F1, int F2, int F3, int F4, int F5, int END)
         {
             if (F1 > 0)
                 FloorData.Get("F1").potentialItems.Add(new WeightedItemObject() { selection = itemObject, weight = F1 });
             if (F2 > 0)
-                FloorData.Get("F2").potentialItems.Add(new WeightedItemObject() { selection = itemObject, weight = F1 });
+                FloorData.Get("F2").potentialItems.Add(new WeightedItemObject() { selection = itemObject, weight = F2 });
             if (F3 > 0)
-                FloorData.Get("F3").potentialItems.Add(new WeightedItemObject() { selection = itemObject, weight = F1 });
+                FloorData.Get("F3").potentialItems.Add(new WeightedItemObject() { selection = itemObject, weight = F3 });
+            if (F4 > 0)
+                FloorData.Get("F4").potentialItems.Add(new WeightedItemObject() { selection = itemObject, weight = F4 });
+            if (F5 > 0)
+                FloorData.Get("F5").potentialItems.Add(new WeightedItemObject() { selection = itemObject, weight = F5 });
             if (END > 0)
-                FloorData.Get("END").potentialItems.Add(new WeightedItemObject() { selection = itemObject, weight = F1 });
+                FloorData.Get("END").potentialItems.Add(new WeightedItemObject() { selection = itemObject, weight = END });
         }
+        private static void AddToFloors(ItemObject itemObject, int F1, int F2, int F3, int END) => AddToFloors(itemObject, F1, F2, F3, F2, F3, END);
         private static void AddToMysteryRoom(ItemObject itemObject, int weight)
         {
             AssetsHelper.FindAllOfType<MysteryRoom>().Do(x => x.items = x.items.AddToArray(new WeightedItemObject() { selection = itemObject, weight = weight }));
@@ -142,7 +154,7 @@ namespace BBE.Creators
                 .SetNameAndDescription("BBE_Item_MagicRuby", "BBE_Item_MagicRuby_Desc")
                 .SetEnum(ModdedItems.MagicRuby)
                 .SetSmallSprite(AssetsHelper.CreateTexture("Textures", "Items", "BBE_MagicRubySmall.png").ToSprite())
-                .SetLargeSprite(AssetsHelper.CreateTexture("Textures", "Items", "BBE_MagicRubyLarge.png").ToSprite(80f))
+                .SetLargeSprite(AssetsHelper.CreateTexture("Textures", "Items", "BBE_MagicRubyLarge.png").ToSprite(40f))
                 .SetGeneratorCost(160)
                 .SetShopPrice(750)
                 .BuildAndSetup();
@@ -245,8 +257,8 @@ namespace BBE.Creators
                 .SetItemComponent<ITM_NoSign>()
                 .SetNameAndDescription("BBE_Item_NoSign", "BBE_Item_NoSign_Desc")
                 .SetEnum(ModdedItems.NoSign)
-                .SetSmallSprite(AssetsHelper.CreateTexture("Textures", "Items", "BBE_NoSign.png").ToSprite())
-                .SetLargeSprite(AssetsHelper.CreateTexture("Textures", "Items", "BBE_NoSign.png").ToSprite(55f))
+                .SetSmallSprite(AssetsHelper.CreateTexture("Textures", "Items", "BBE_NoSignSmall.png").ToSprite())
+                .SetLargeSprite(AssetsHelper.CreateTexture("Textures", "Items", "BBE_NoSignLarge.png").ToSprite(50f))
                 .SetGeneratorCost(30)
                 .SetShopPrice()
                 .SetMeta(ItemFlags.Persists)

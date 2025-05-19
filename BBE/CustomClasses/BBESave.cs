@@ -63,7 +63,7 @@ namespace BBE.CustomClasses
         {
             foreach (FunSetting fun in FunSetting.GetAll())
                 fun.Unlock();
-            BaseCompat.Get<AchievementsCompat>()?.UnlockAll();
+            //BaseCompat.Get<AchievementsCompat>()?.UnlockAll();
         }
     }
 }

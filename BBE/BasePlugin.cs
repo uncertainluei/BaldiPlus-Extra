@@ -27,6 +27,7 @@ using BBE.NPCs.Chess;
 using BBE.Rooms;
 using BBE.CustomClasses.OptionsMenu;
 using MTM101BaldAPI.Registers.Buttons;
+using UnityEngine.SceneManagement;
 
 namespace BBE
 {
@@ -80,28 +81,35 @@ namespace BBE
                     }
                 }
             }
-            scene.levelObject.potentialItems = scene.levelObject.potentialItems.AddRangeToArray(floorData.potentialItems.ToArray());
-            scene.levelObject.shopItems = scene.levelObject.shopItems.AddRangeToArray(floorData.shopItems.ToArray());
-            scene.levelObject.forcedItems.AddRange(floorData.forcedItems);
-            scene.levelObject.randomEvents.AddRange(floorData.randomEvents);
+            scene.shopItems = scene.shopItems.AddRangeToArray(floorData.shopItems.ToArray());
             scene.potentialNPCs.AddRange(floorData.potentialNPCs);
-            scene.levelObject.forcedNpcs = scene.levelObject.forcedNpcs.AddRangeToArray(floorData.forcedNPCs.ToArray());
-            scene.levelObject.potentialSpecialRooms = scene.levelObject.potentialSpecialRooms.AddRangeToArray(floorData.specialRooms.ToArray());
+            scene.forcedNpcs = scene.forcedNpcs.AddRangeToArray(floorData.forcedNPCs.ToArray());
+
+            foreach (CustomLevelObject lvl in scene.GetCustomLevelObjects())
+                RegisterDataToGeneratorLvl(lvl, floorData);
+        }
+
+        private void RegisterDataToGeneratorLvl(CustomLevelObject lvl, FloorData floorData)
+        {
+            lvl.potentialItems = lvl.potentialItems.AddRangeToArray(floorData.potentialItems.ToArray());
+            lvl.forcedItems.AddRange(floorData.forcedItems);
+            lvl.randomEvents.AddRange(floorData.randomEvents);
+            lvl.potentialSpecialRooms = lvl.potentialSpecialRooms.AddRangeToArray(floorData.specialRooms.ToArray());
             foreach (RoomGroup roomGroup in floorData.roomGroups)
             {
-                if (scene.levelObject.roomGroup.IfExists(x => x.name == roomGroup.name, out RoomGroup group)) 
+                if (lvl.roomGroup.IfExists(x => x.name == roomGroup.name, out RoomGroup group))
                     group.potentialRooms = group.potentialRooms.AddRangeToArray(roomGroup.potentialRooms);
                 else
-                    scene.levelObject.roomGroup = scene.levelObject.roomGroup.AddToArray(roomGroup);
+                    lvl.roomGroup = lvl.roomGroup.AddToArray(roomGroup);
             }
-            StructureWithParameters structure = scene.levelObject.forcedStructures.Where(x => x.prefab.name == "SwingingDoorConstructor").FirstOrDefault();
+            StructureWithParameters structure = lvl.forcedStructures.Where(x => x.prefab.name == "SwingingDoorConstructor").FirstOrDefault();
             if (structure != null)
             {
                 structure.parameters.prefab = structure.parameters.prefab.AddRangeToArray(floorData.customSwingDoors.ToArray());
-                scene.levelObject.forcedStructures.ReplaceWhere(x => x.prefab.name == "SwingingDoorConstructor", structure);
+                lvl.forcedStructures.ReplaceWhere(x => x.prefab.name == "SwingingDoorConstructor", structure);
             }
-            scene.levelObject.forcedStructures = scene.levelObject.forcedStructures.AddRangeToArray(floorData.forcedStructures.ToArray());
-            scene.levelObject.posters = scene.levelObject.posters.AddRangeToArray(floorData.posters.ToArray());
+            lvl.forcedStructures = lvl.forcedStructures.AddRangeToArray(floorData.forcedStructures.ToArray());
+            lvl.posters = lvl.posters.AddRangeToArray(floorData.posters.ToArray());
         }
 
         public IEnumerator LoadAssets()
@@ -118,6 +126,8 @@ namespace BBE
             new FloorData("F1");
             new FloorData("F2");
             new FloorData("F3");
+            new FloorData("F4");
+            new FloorData("F5");
             new FloorData("END");
             yield return "Loading save file...";
             new BBESave().Initialize().Update();

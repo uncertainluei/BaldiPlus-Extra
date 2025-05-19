@@ -1,0 +1,27 @@
+{
+  "pieces": [
+    { "Item1": "King", "Item2": "g1", "Item3": true },
+    { "Item1": "Pawn", "Item2": "a2", "Item3": true },
+    { "Item1": "Queen", "Item2": "d3", "Item3": true },
+    { "Item1": "Pawn", "Item2": "f3", "Item3": true },
+    { "Item1": "Pawn", "Item2": "g3", "Item3": false },
+    { "Item1": "Queen", "Item2": "h3", "Item3": false },
+    { "Item1": "Pawn", "Item2": "h6", "Item3": false },
+    { "Item1": "Rook", "Item2": "b7", "Item3": true },
+    { "Item1": "Rook", "Item2": "d7", "Item3": true },
+    { "Item1": "Pawn", "Item2": "g7", "Item3": false },
+    { "Item1": "Rook", "Item2": "a8", "Item3": false },
+    { "Item1": "Rook", "Item2": "f8", "Item3": false },
+    { "Item1": "King", "Item2": "h8", "Item3": false }
+  ],
+  "moves": [
+    { "Item1": "D3", "Item2": "H7" },
+    { "Item1": "H8", "Item2": "H7" },
+    { "Item1": "D7", "Item2": "G7" },
+    { "Item1": "H7", "Item2": "H8" },
+    { "Item1": "G7", "Item2": "H7" },
+    { "Item1": "H8", "Item2": "G8" },
+    { "Item1": "B7", "Item2": "G7" }
+  ],
+  "playerIsWhite": true
+}

@@ -12,8 +12,6 @@ using static BBE.Compats.EditorCompat.EditorPatches;
 using PlusLevelLoader;
 using BBE.Helpers;
 using MTM101BaldAPI.Registers;
-using static Mono.Security.X509.X520;
-using static UnityEngine.Rendering.DebugUI;
 
 namespace BBE.Compats.EditorCompat
 {

@@ -1,0 +1,17 @@
+{"items":[
+
+{"key":"BBE_BBEOption","value":"BBE options"},
+{"key":"BBE_ExtendedCounterText","value":"Extended counter text"},
+{"key":"BBE_ExtendedCounterText_Desc","value":"If active, notebook/elevator counters\nwill have 'Notebooks' or 'Elevators' text"},
+{"key":"BBE_TinnitusSoundEvent","value":"Tinnitus sound event"},
+{"key":"BBE_TinnitusSoundEvent_Desc","value":"If active, sound event will have tinnitus effect"},
+{"key":"BBE_ForcedPlayButton","value":"Forced play button"},
+{"key":"BBE_ForcedPlayButton_Desc","value":"If active, play button will appear when generator crash"},
+{"key":"BBE_ShowDescriptionEverywhere","value":"Show desc. everywhere"},
+{"key":"BBE_ShowDescriptionEverywhere_Desc","value":"If active, you will be able see item descriptions when you hover them"},
+{"key":"BBE_OldStockfish","value":"Old Stockfish"},
+{"key":"BBE_OldStockfish_Desc","value":"If active, stockfish won't give item reward and will give punishment if you fail puzzle\nJust like old Stockfish!"},
+{"key":"BBE_ToggleOptionsTitle","value":"Toggle Options"},
+{"key":"BBE_ToggleOptionsTitle_Desc","value":"Options that can be only active or not active"}
+
+]}

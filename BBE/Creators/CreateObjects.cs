@@ -39,7 +39,7 @@ namespace BBE.Creators
             BasePlugin.Asset.Add<Sprite>("CrossMark", AssetsHelper.CreateSpriteSheet(AssetsHelper.LoadAsset<Texture2D>("YCTP_IndicatorsSheet"), 2, 1)[1]);
             BasePlugin.Asset.AddFromResources<Sprite>("GrapplingHookSprite");
             BasePlugin.Asset.AddFromResources<Sprite>("GrappleCracks");
-            BasePlugin.Asset.Add<Sprite>("YTPMapIcon", AssetsHelper.CreateTexture("Textures", "MapIcons", "BBE_Points.png").ToSprite(70f));
+            BasePlugin.Asset.Add<Sprite>("YTPMapIcon", AssetsHelper.CreateTexture("Textures", "MapIcons", "BBE_Points.png").ToSprite(16f));
             BasePlugin.Asset.Add<Sprite>("DSODASpray", AssetsHelper.CreateTexture("Textures", "Items", "BBE_DSODASpray.png").ToSprite(50));
             BasePlugin.Asset.Add<Texture2D>("ElevatorCounterIconSheet", AssetsHelper.CreateTexture("Textures", "Other", "BBE_ElevatorIconSheet.png"));
             BasePlugin.Asset.Add<Texture2D>("NotebookCounterIconSheet", AssetsHelper.LoadAsset<Texture2D>("NotebookIcon_Sheet").CopyTexture());
