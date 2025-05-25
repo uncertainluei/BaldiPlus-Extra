@@ -50,7 +50,7 @@ namespace BBE.CustomClasses
                 }
                 if (button == null)
                 {
-                    BasePlugin.Logger.LogError("For some reasone fun setting " + LocalizedName + " has null toggle button");
+                    BaldiExtraPlugin.Logger.LogError("For some reasone fun setting " + LocalizedName + " has null toggle button");
                 }
 
                 return button;
@@ -137,17 +137,17 @@ namespace BBE.CustomClasses
         {
             if (ExistsWithUniqueName(uniqueFunSettingName))
             {
-                BasePlugin.Logger.LogWarning("Fun setting with unique name " + uniqueFunSettingName + " already exists");
+                BaldiExtraPlugin.Logger.LogWarning("Fun setting with unique name " + uniqueFunSettingName + " already exists");
                 return;
             }
             if (Exists(setting))
             {
-                BasePlugin.Logger.LogWarning("Fun setting with enum " + setting.ToString() + " already exists");
+                BaldiExtraPlugin.Logger.LogWarning("Fun setting with enum " + setting.ToString() + " already exists");
                 return;
             }
             if (Exists(settingName))
             {
-                BasePlugin.Logger.LogWarning("Fun setting with name " + settingName.ToString() + " already exists");
+                BaldiExtraPlugin.Logger.LogWarning("Fun setting with name " + settingName.ToString() + " already exists");
                 return;
             }
             GameObject go = new GameObject(settingName)
@@ -173,7 +173,7 @@ namespace BBE.CustomClasses
                 if (notAllowedSettings.Contains(funSetting))
                 {
                     notAllowedSettings.Remove(funSetting);
-                    BasePlugin.Logger.LogWarning("You can not add not allowed fun settings to dependies!");
+                    BaldiExtraPlugin.Logger.LogWarning("You can not add not allowed fun settings to dependies!");
                     continue;
                 }
                 res.AddDepend(funSetting);
@@ -462,7 +462,7 @@ namespace BBE.CustomClasses
         {
             if (!Exists(setting, localized))
             {
-                BasePlugin.Logger.LogWarning("Fun setting " + setting + " doesn't exists");
+                BaldiExtraPlugin.Logger.LogWarning("Fun setting " + setting + " doesn't exists");
                 return;
             }
             if (localized) all.RemoveAll(x => x.LocalizedName == setting);
@@ -472,7 +472,7 @@ namespace BBE.CustomClasses
         {
             if (!Exists(setting))
             {
-                BasePlugin.Logger.LogWarning("Fun setting " + setting + " doesn't exists");
+                BaldiExtraPlugin.Logger.LogWarning("Fun setting " + setting + " doesn't exists");
                 return;
             }
             all.RemoveAll(x => x.funSettingEnum == setting);
@@ -489,7 +489,7 @@ namespace BBE.CustomClasses
         {
             if (dependies.Contains(depend))
             {
-                BasePlugin.Logger.LogWarning("Dependies " +  depend + " at fun setting " + funSettingEnum + "(" + funSettingName + ") already exists");
+                BaldiExtraPlugin.Logger.LogWarning("Dependies " +  depend + " at fun setting " + funSettingEnum + "(" + funSettingName + ") already exists");
                 return;
             }
             dependies.Add(depend);
@@ -498,7 +498,7 @@ namespace BBE.CustomClasses
         {
             if (!dependies.Contains(depend))
             {
-                BasePlugin.Logger.LogWarning("Dependies " + depend + " at fun setting " + funSettingEnum + "(" + funSettingName + ") doesn't exists");
+                BaldiExtraPlugin.Logger.LogWarning("Dependies " + depend + " at fun setting " + funSettingEnum + "(" + funSettingName + ") doesn't exists");
                 return;
             }
             dependies.Remove(depend);
@@ -511,7 +511,7 @@ namespace BBE.CustomClasses
         {
             if (notAllowed.Contains(toNotAllow))
             {
-                BasePlugin.Logger.LogWarning("Fun setting" + toNotAllow + " already not allowed with " + funSettingEnum + "(" + funSettingName + ")");
+                BaldiExtraPlugin.Logger.LogWarning("Fun setting" + toNotAllow + " already not allowed with " + funSettingEnum + "(" + funSettingName + ")");
                 return;
             }
 
@@ -521,7 +521,7 @@ namespace BBE.CustomClasses
         {
             if (!notAllowed.Contains(toNotAllow))
             {
-                BasePlugin.Logger.LogWarning("Fun setting " + toNotAllow + " already allowed");
+                BaldiExtraPlugin.Logger.LogWarning("Fun setting " + toNotAllow + " already allowed");
                 return;
             }
             notAllowed.Remove(toNotAllow);

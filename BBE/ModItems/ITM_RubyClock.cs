@@ -67,14 +67,14 @@ namespace BBE.ModItems
             finished = false;
             ec = pm.ec;
             mapIcon = Instantiate(AssetsHelper.LoadAsset<NoLateIcon>(x => x.timeText != null));
-            mapIcon.spriteRenderer.sprite = BasePlugin.Asset.Get<Sprite>("RubyClockIcon");
+            mapIcon.spriteRenderer.sprite = BaldiExtraPlugin.Asset.Get<Sprite>("RubyClockIcon");
             mapIcon.gameObject.SetActive(true);
             mapIcon = (NoLateIcon)ec.map.AddIcon(mapIcon, transform, Color.white);
             mapIcon.timeText.color = Color.red;
             transform.position = pm.transform.position;
             audMan = gameObject.AddAudioManager();
             gameObject.transform.position = gameObject.transform.position.Change(y: 4);
-            entity = gameObject.CreateEntity(2, 2, spriteObject.transform);
+            entity = gameObject.CreateEntity(2, 2, transform);
             entity.collider.enabled = false;
             entity.Initialize(ec, transform.position);
             StartCoroutine(Timer(setTime[initSetTime]));

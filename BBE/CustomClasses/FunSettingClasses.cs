@@ -216,7 +216,7 @@ namespace BBE.CustomClasses
             }
             if (npc is Principal principal)
             {
-                principal.audWhistle = BasePlugin.Asset.Get<SoundObject>("EmptyVoiceSoundObject");
+                principal.audWhistle = BaldiExtraPlugin.Asset.Get<SoundObject>("EmptyVoiceSoundObject");
             }
             if (npc is Beans beans)
             {

@@ -30,7 +30,7 @@ namespace BBE.Helpers
         public static TMP_FontAsset FontFromFile(string path, int size = 24, int atlasWidth = 1024, int atlasHeight = 1024, GlyphRenderMode renderMode = GlyphRenderMode.RASTER_HINTED)
         {
             if (FontEngine.LoadFontFace(ModPath + path, size) > FontEngineError.Success)
-                MTM101BaldiDevAPI.CauseCrash(BasePlugin.Instance.Info, new System.Exception("Something wrong with " + path));
+                MTM101BaldiDevAPI.CauseCrash(BaldiExtraPlugin.Instance.Info, new System.Exception("Something wrong with " + path));
             Font font = new Font(ModPath + path);
             TMP_FontAsset tmp_FontAsset = TMP_FontAsset.CreateFontAsset(font, size, 2, renderMode, atlasWidth, atlasHeight, AtlasPopulationMode.Dynamic, true);
             tmp_FontAsset.name = Path.GetFileNameWithoutExtension(path);
@@ -157,7 +157,7 @@ namespace BBE.Helpers
             List<List<char>> charList = hex.SplitToList(2);
             if (charList.Count != 4 && charList.Count != 3)
             {
-                BasePlugin.Logger.LogWarning("HexCode " + hex + " is invalid!");
+                BaldiExtraPlugin.Logger.LogWarning("HexCode " + hex + " is invalid!");
                 return new Color(0, 0, 0, 0);
             }
             List<int> values = new List<int>() { };
@@ -165,7 +165,7 @@ namespace BBE.Helpers
             {
                 if (chars.Count != 2)
                 {
-                    BasePlugin.Logger.LogWarning("HexCode " + hex + " is invalid!");
+                    BaldiExtraPlugin.Logger.LogWarning("HexCode " + hex + " is invalid!");
                     return new Color(0, 0, 0, 0);
                 }
                 string temp = chars[0].ToString() + chars[1].ToString();
@@ -175,7 +175,7 @@ namespace BBE.Helpers
                 }
                 catch
                 {
-                    BasePlugin.Logger.LogWarning("HexCode " + hex + " is invalid!");
+                    BaldiExtraPlugin.Logger.LogWarning("HexCode " + hex + " is invalid!");
                 }
             }
             if (values.Count == 4)
@@ -186,7 +186,7 @@ namespace BBE.Helpers
         }
         public static string MidiFromFile(string path, string name)
         {
-            return AssetLoader.MidiFromMod(name, BasePlugin.Instance, path);
+            return AssetLoader.MidiFromMod(name, BaldiExtraPlugin.Instance, path);
         }
         public static Sprite[] CreateSpriteSheet(int tilesByX, int tilesByY, float pixelsPerUnit = 1f, params string[] path)
         {
@@ -211,7 +211,7 @@ namespace BBE.Helpers
         }
         public static AudioClip AudioFromFile(params string[] path)
         {
-            return AssetLoader.AudioClipFromMod(BasePlugin.Instance, path);
+            return AssetLoader.AudioClipFromMod(BaldiExtraPlugin.Instance, path);
         }
         public static string ModPathToOpen
         {
@@ -225,7 +225,7 @@ namespace BBE.Helpers
         {
             get
             { 
-                return AssetLoader.GetModPath(BasePlugin.Instance)+"/";
+                return AssetLoader.GetModPath(BaldiExtraPlugin.Instance)+"/";
             }
         }
     }

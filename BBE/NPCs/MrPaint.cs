@@ -149,7 +149,7 @@ namespace BBE.NPCs
 
         void IPrefab.SetupAssets()
         {
-            spriteRenderer[0].sprite = BasePlugin.Asset.GetOrAdd("MrPaintBaseSprite", AssetsHelper.CreateTexture("Textures", "NPCs", "MrPaint", "BBE_MrPaintBase.png").ToSprite(50));
+            spriteRenderer[0].sprite = BaldiExtraPlugin.Asset.GetOrAdd("MrPaintBaseSprite", AssetsHelper.CreateTexture("Textures", "NPCs", "MrPaint", "BBE_MrPaintBase.png").ToSprite(50));
         }
         public override void Initialize()
         {
@@ -209,7 +209,7 @@ namespace BBE.NPCs
                         color = AssetsHelper.ColorFromHex("761594");
                         break;
                 }
-                paint.Initialize(BasePlugin.Asset.Get<Sprite>("PaintBase").ReplaceColor(Color.white, color), mrPaint.gameObject);
+                paint.Initialize(BaldiExtraPlugin.Asset.Get<Sprite>("PaintBase").ReplaceColor(Color.white, color), mrPaint.gameObject);
                 paint.paintObject = game;
                 time = Cooldown;
             }

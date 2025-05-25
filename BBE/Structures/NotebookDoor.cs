@@ -10,7 +10,7 @@ namespace BBE.Structures
 {
     class NotebookDoor : CustomSwingDoor<NotebookDoor>
     {
-        public override Texture2D MaterialTexture => BasePlugin.Asset.Get<Texture2D>("NotebookDoorMaterial");
+        public override Texture2D MaterialTexture => BaldiExtraPlugin.Asset.Get<Texture2D>("NotebookDoorMaterial");
         public int notebookToCollect = 2;
         public override void VirtualStart()
         {

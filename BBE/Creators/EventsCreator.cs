@@ -42,7 +42,7 @@ namespace BBE.Creators
             AddToFloors(randomEvent, 0, 30, 60, 60);*/
 
             SoundObject sound = AssetsHelper.LoadAsset<SoundObject>("BAL_Event_Ruler");
-            RandomEvent randomEvent = new RandomEventBuilder<SoundEvent>(BasePlugin.Instance.Info)
+            RandomEvent randomEvent = new RandomEventBuilder<SoundEvent>(BaldiExtraPlugin.Instance.Info)
                 .SetMinMaxTime(50, 60)
                 .SetEnumAndName(ModdedRandomEvent.SoundEvent)
                 .SetSound(sound)
@@ -51,7 +51,7 @@ namespace BBE.Creators
             
             sound = AssetsHelper.CreateSoundObject(AssetsHelper.AudioFromFile("Audio", "Events", "Starts", "BBE_HookChaos.wav"), SoundType.Voice, Color.green, -1f, "BBE_Event_HookChaos1");
             sound = sound.AddAdditionalKey("BBE_Event_HookChaos2", 2.7f).AddAdditionalKey("BBE_Event_HookChaos3", 5f);
-            randomEvent = new RandomEventBuilder<HookChaosEvent>(BasePlugin.Instance.Info)
+            randomEvent = new RandomEventBuilder<HookChaosEvent>(BaldiExtraPlugin.Instance.Info)
                 .SetMinMaxTime(90, 120)
                 .SetEnumAndName(ModdedRandomEvent.HookChaos)
                 .SetSound(sound)
@@ -60,7 +60,7 @@ namespace BBE.Creators
             
             sound = AssetsHelper.CreateSoundObject(AssetsHelper.AudioFromFile("Audio", "Events", "Starts", "BBE_ElectricityEvent.wav"), SoundType.Voice, Color.green, -1f, "BBE_Event_Electricity1");
             sound = sound.AddAdditionalKey("BBE_Event_Electricity2", 2.8f).AddAdditionalKey("BBE_Event_Electricity3", 7f);
-            randomEvent = new RandomEventBuilder<ElectricityEvent>(BasePlugin.Instance.Info)
+            randomEvent = new RandomEventBuilder<ElectricityEvent>(BaldiExtraPlugin.Instance.Info)
                 .SetMinMaxTime(60, 90)
                 .SetEnumAndName(ModdedRandomEvent.ElectricityEvent)
                 .SetSound(sound)

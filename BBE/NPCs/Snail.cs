@@ -15,7 +15,7 @@ namespace BBE.NPCs
         {
             audMan = this.GetComponent<AudioManager>();
             audMan.overrideSubtitleColor = false;
-            spriteRenderer[0].sprite = BasePlugin.Asset.GetOrAdd<Sprite>("SnailBaseSprite",
+            spriteRenderer[0].sprite = BaldiExtraPlugin.Asset.GetOrAdd<Sprite>("SnailBaseSprite",
                 AssetsHelper.CreateTexture("Textures", "NPCs", "Snail", "BBE_SnailBase.png").ToSprite(50)); 
             scream = AssetsHelper.CreateSoundObject(AssetsHelper.AudioFromFile("Audio", "NPCs", "BBE_SnailScream.mp3"), SoundType.Voice, "d4b585", subtitleKey: "BBE_Snail_Scream");
         }

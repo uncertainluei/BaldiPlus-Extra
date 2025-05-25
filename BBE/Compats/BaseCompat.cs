@@ -24,18 +24,18 @@ namespace BBE.Compats
             {
                 if (forced)
                 {
-                    MTM101BaldiDevAPI.CauseCrash(BasePlugin.Instance.Info, new Exception("To play Baldi Basics Extra mod " + GUID + " should be installed!"));
+                    MTM101BaldiDevAPI.CauseCrash(BaldiExtraPlugin.Instance.Info, new Exception("To play Baldi Basics Extra mod " + GUID + " should be installed!"));
                     return;
                 }
-                BasePlugin.Logger.LogInfo(GUID + " is not installed! Skiping compat for it...");
+                BaldiExtraPlugin.Logger.LogInfo(GUID + " is not installed! Skiping compat for it...");
                 return;
             }
             if (compats.Exists(x => x.plugin.Metadata.GUID == GUID))
             {
-                BasePlugin.Logger.LogInfo(GUID + " compat already in list! Skiping compat for it...");
+                BaldiExtraPlugin.Logger.LogInfo(GUID + " compat already in list! Skiping compat for it...");
                 return;
             }
-            BasePlugin.Logger.LogInfo("Setuped compat for " + GUID);
+            BaldiExtraPlugin.Logger.LogInfo("Setuped compat for " + GUID);
             plugin = Chainloader.PluginInfos.Where(x => x.Value.Metadata.GUID == GUID).First().Value;
             compats.Add(this);
         }

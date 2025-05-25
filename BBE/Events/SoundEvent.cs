@@ -19,7 +19,7 @@ namespace BBE.Events
             if (BBEConfigs.TinnitusSoundEvent)
             {
                 source = new GameObject("DeafSource").AddComponent<AudioSource>();
-                source.clip = BasePlugin.Asset.Get<AudioClip>("DeafSound");
+                source.clip = BaldiExtraPlugin.Asset.Get<AudioClip>("DeafSound");
                 source.loop = false;
                 source.volume += 3f;
                 source.ignoreListenerVolume = true;

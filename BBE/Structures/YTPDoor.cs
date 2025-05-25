@@ -13,7 +13,7 @@ namespace BBE.Structures
     {
         public int ytp = 250;
 
-        public override Texture2D MaterialTexture => BasePlugin.Asset.Get<Texture2D>("YTPDoorMaterial");
+        public override Texture2D MaterialTexture => BaldiExtraPlugin.Asset.Get<Texture2D>("YTPDoorMaterial");
 
         public override void VirtualStart()
         {

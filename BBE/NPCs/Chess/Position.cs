@@ -9,6 +9,8 @@ using UnityEngine.UI;
 using MTM101BaldAPI.UI;
 using HarmonyLib;
 using BBE.Helpers;
+using System.Runtime.CompilerServices;
+using System.Xml.Linq;
 
 namespace BBE.NPCs.Chess
 {
@@ -22,7 +24,8 @@ namespace BBE.NPCs.Chess
         public Vector4 Square { get; }
         public List<Vector2> Pixels { get; }
         public Vector3 PiecePostion { get; }
-        public Texture2D Texture2D { get; }
+        public Color[] PixelData => BaldiExtraPlugin.Asset.Get<Color[]>(path);
+        private string path;
         public Image PointImage { get; private set; }
         public BaseChessPiece PieceAtPosition
         {
@@ -58,10 +61,9 @@ namespace BBE.NPCs.Chess
             Rank = rank;
             FileAsInt = ToFile(File);
             IsGray = grayPositions.Contains(ToInt());
-            string name = "ChessTileBrown";
+            path = "ChessTileBrown";
             if (IsGray)
-                name = "ChessTileGray";
-            Texture2D = BasePlugin.Asset.Get<Texture2D>(name);
+                path = "ChessTileGray";
             Square = new Vector4(100 + 35 * (FileAsInt - 1), -320 + 35 * (Rank - 1),
                     134 + 35 * (FileAsInt - 1), -286 + 35 * (Rank - 1));
             PiecePostion = new Vector3(-120 + (ToFile(file) - 1) * 35, -115 + (rank - 1) * 35, 0);
@@ -125,7 +127,7 @@ namespace BBE.NPCs.Chess
             if (chessBoard == null)
                 return;
             if (PointImage == null)
-                PointImage = UIHelpers.CreateImage(BasePlugin.Asset.Get<Sprite>("ChessWhitePoint"), chessBoard.canvas.transform, PiecePostion, true, 0.7f);
+                PointImage = UIHelpers.CreateImage(BaldiExtraPlugin.Asset.Get<Sprite>("ChessWhitePoint"), chessBoard.canvas.transform, PiecePostion, true, 0.7f);
             PointImage.color = color;
             PointImage.transform.localPosition = PiecePostion;
             if (PieceAtPosition != null)

@@ -37,7 +37,7 @@ namespace BBE.ModItems
                     color = AssetsHelper.ColorFromHex("761594");
                     break;
             }
-            paint.Initialize(BasePlugin.Asset.Get<Sprite>("PaintBase").ReplaceColor(Color.white, color), pm.gameObject);
+            paint.Initialize(BaldiExtraPlugin.Asset.Get<Sprite>("PaintBase").ReplaceColor(Color.white, color), pm.gameObject);
             paint.item = gameObject;
             paint.paintObject = game;
             return true;

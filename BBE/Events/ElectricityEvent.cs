@@ -285,7 +285,7 @@ namespace BBE.Events
         private static void Clear()
         {
             if (BeltPatch.IgnorableBelts != null) BeltPatch.IgnorableBelts.Clear();
-            BasePlugin.Logger.LogInfo("Cleaning belt data...");
+            BaldiExtraPlugin.Logger.LogInfo("Cleaning belt data...");
 
         }
     }

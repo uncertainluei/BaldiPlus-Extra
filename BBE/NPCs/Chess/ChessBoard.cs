@@ -29,9 +29,11 @@ namespace BBE.NPCs.Chess
         private GameObject cursor;
         private Sprite sprite;
         private Image boardImage;
+        private RectTransform boardSelect;
         private TMP_Text info;
         private TMP_Text title;
         private CursorController cursorController;
+        private Vector2 selectPosition;
         public Move CurrentMove
         {
             get
@@ -56,46 +58,35 @@ namespace BBE.NPCs.Chess
         };
         public List<BaseChessPiece> chessPieces;
         public int MovesLeft => (puzzle.Moves.Length + 1) / 2 - moveMade;
-        public static Sprite GenerateBoardSprite(Position position)
+
+        public static Color[] GetTilePixels(Texture2D tile)
         {
-            if (position == null)
-                return GenerateBoardSprite();
-            if (BasePlugin.Asset.Exists<Sprite>("ChessBoard" + position.ToString(), out Sprite sprite))
-                return sprite;
-            if (!BasePlugin.Asset.Exists<Sprite>("ChessBoard"))
-                BasePlugin.Asset.Add<Sprite>("ChessBoard", ChessBoard.GenerateBoardSprite());
-            Texture2D reference = BasePlugin.Asset.Get<Sprite>("ChessBoard").texture.CopyTexture();
-            foreach (Vector2 vector in position.Pixels)
-                reference.SetPixel((int)vector.x, (int)vector.y, Color.yellow);
-            reference.Apply();
-            Sprite result = reference.ToSprite();
-            BasePlugin.Asset.Add<Sprite>("ChessBoard" + position.ToString(), result);
-            return result;
+            if (tile.width == tile.height && tile.width == Constants.CHESS_TILE_SIZE)
+                return tile.GetPixels();
+
+            return MaterialModifier.GetColorsForTileTexture(tile, Constants.CHESS_TILE_SIZE);
         }
+
         public static Sprite GenerateBoardSprite()
         {
-            if (BasePlugin.Asset.Exists<Sprite>("ChessBoard", out Sprite sprite)) 
-                return sprite;
             Texture2D result = new Texture2D(Constants.CHESS_TILE_SIZE * 8, Constants.CHESS_TILE_SIZE * 8);
-            for (int x = 0; x < 512; x++)
+            for (int x = 0; x < 512; x+=Constants.CHESS_TILE_SIZE)
             {
-                for (int y = 0; y < 512; y++)
+                for (int y = 0; y < 512; y += Constants.CHESS_TILE_SIZE)
                 {
                     int file = x / Constants.CHESS_TILE_SIZE + 1;
                     int rank = y / Constants.CHESS_TILE_SIZE + 1;
                     Position pos = Position.Create(file, rank);
                     Vector2 vector = new Vector2(x, y);
+
                     if (!pos.Pixels.Contains(vector))
                         pos.Pixels.Add(vector);
-                    int localX = x % Constants.CHESS_TILE_SIZE;
-                    int localY = y % Constants.CHESS_TILE_SIZE;
-                    Color color = pos.Texture2D.GetPixel(localX, localY);   
-                    result.SetPixel(x, y, color);
+
+                    result.SetPixels(x, y, Constants.CHESS_TILE_SIZE, Constants.CHESS_TILE_SIZE, pos.PixelData);
                 }
             }
             result.Apply();
             Sprite res = result.ToSprite();
-            BasePlugin.Asset.Add<Sprite>("ChessBoard", res);
             return res;
         }
         private bool CursorInside(Vector4 rect)
@@ -200,7 +191,15 @@ namespace BBE.NPCs.Chess
                 selectedPiece = null;
                 selectedTile = null;
             }
-            boardImage.sprite = GenerateBoardSprite(selectedTile);
+
+            boardSelect.gameObject.SetActive(selectedTile != null);
+            if (selectedTile != null)
+            {
+                Debug.Log(selectedTile.File);
+                selectPosition.x = 161.6f + 35.2f * selectedTile.FileAsInt;
+                selectPosition.y = -338.4f + 35.2f * selectedTile.Rank;
+                boardSelect.anchoredPosition = selectPosition;
+            }
             UpdateVisual();
         }
         private void Update()
@@ -236,14 +235,13 @@ namespace BBE.NPCs.Chess
                         positionSquares.Add(position, position.Square);
                 }
             }
-            this.sprite = BasePlugin.Asset.Get<Sprite>("ChessBoard");
+            this.sprite = BaldiExtraPlugin.Asset.Get<Sprite>("ChessBoard");
             selectedTile = null;
             selectedPiece = null;
             this.puzzle = null;
             CoreGameManager.Instance.disablePause = true;
             Position.chessBoard = this;
             Initialized = true;
-            this.sprite = GenerateBoardSprite();
             this.stockfish = stockfish;
             this.pm = pm;
             this.chessPieces = new List<BaseChessPiece>();
@@ -255,6 +253,14 @@ namespace BBE.NPCs.Chess
             {
                 this.canvas = CreateObjects.CreateCanvas("ChessCanvas", color: Color.black.Change(a: 0.9f));
                 this.boardImage = UIHelpers.CreateImage(sprite, canvas.transform, Vector3.zero, false, 0.55f);
+
+                Image select = UIHelpers.CreateImage(sprite, canvas.transform, Vector3.zero, false, 0.55f);
+                select.sprite = null;
+                select.color = Color.yellow;
+                boardSelect = select.rectTransform;
+                boardSelect.sizeDelta = Vector2.one * Constants.CHESS_TILE_SIZE;
+                boardSelect.gameObject.SetActive(false);
+
                 TMP_Text letters = CreateObjects.CreateText("Letters", "A  B  C  D  E  F  G  H", true, new Vector3(-135, -140, 0), Vector3.one, canvas.transform, BaldiFonts.BoldComicSans24);
                 letters.color = Color.white;
                 letters.fontSize = 25f;
@@ -311,7 +317,6 @@ namespace BBE.NPCs.Chess
             this.stockfish = null;
             Initialized = false;
             selectedPiece = null;
-            this.sprite = GenerateBoardSprite();
             selectedTile = null;
             foreach (BaseChessPiece piece in chessPieces.ToList())
                 piece.Capture();

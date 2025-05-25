@@ -22,13 +22,13 @@ namespace BBE.Patches
             Image img = __instance.transform.Find("NotebookIcon").GetComponent<Image>();
             if (bgm.FoundNotebooks < bgm.Ec.notebookTotal || bgm is EndlessGameManager)
             {
-                Graphics.CopyTexture(BasePlugin.Asset.Get<Texture2D>("NotebookCounterIconSheet"), img.sprite.texture);
+                Graphics.CopyTexture(BaldiExtraPlugin.Asset.Get<Texture2D>("NotebookCounterIconSheet"), img.sprite.texture);
                 //img.sprite = BasePlugin.asset.Get<Sprite>("NotebookCounterIcon");
                 //img.overrideSprite = BasePlugin.asset.Get<Sprite>("NotebookCounterIcon");
             }
             else
             {
-                Graphics.CopyTexture(BasePlugin.Asset.Get<Texture2D>("ElevatorCounterIconSheet"), img.sprite.texture);
+                Graphics.CopyTexture(BaldiExtraPlugin.Asset.Get<Texture2D>("ElevatorCounterIconSheet"), img.sprite.texture);
                 //img.sprite = BasePlugin.asset.Get<Sprite>("ElevatorCounterIcon");
                 //img.overrideSprite = BasePlugin.asset.Get<Sprite>("ElevatorCounterIcon");
             }

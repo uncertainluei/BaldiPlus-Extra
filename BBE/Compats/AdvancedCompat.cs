@@ -76,27 +76,18 @@ namespace BBE.Compats
 
         public override void Postfix()
         {
-            base.Prefix();/*
-            AssetsStorage.sprites.Add("adv_balloon_!", AssetsHelper.CreateTexture("Textures", "Other", "BBE_ADV_ExclamtaionMark.png").ToSprite(30f));
-            MathMachineNumber mathMachineNumber = GameObject.Instantiate<MathMachineNumber>(AssetsHelper.LoadAsset<MathMachineNumber>("MathNum_0"));
-            GameObject.Destroy(mathMachineNumber);
-            Spelloon spelloon = mathMachineNumber.gameObject.AddComponent<Spelloon>();
-            spelloon.name = "Spelloon_!";
-            spelloon.InitializePrefab();
-            spelloon.InitializePrefabPost("!");
-            spelloon.gameObject.ConvertToPrefab(true);
-            ObjectsStorage.Spelloons.Add("spelloon_!", spelloon);*/
+            base.Prefix();
             ApiManager.CreateNewSpelloon("!", AssetsHelper.CreateTexture("Textures", "Other", "BBE_ADV_ExclamtaionMark.png").ToSprite(30f));
-            ApiManager.AddNewSymbolMachineWords(BasePlugin.Instance.Info, "Extra", "Kulak", "Rost!", "Math!", "OhNo!", "RTMT!");
+            ApiManager.AddNewSymbolMachineWords(BaldiExtraPlugin.Instance.Info, "Extra", "Kulak", "Rost!", "Math!", "OhNo!", "RTMT!");
             for (int i = 1; i<int.MaxValue; i++)
             {
                 string key = "BBE_adv_tip_" + i.ToString();
                 if (!LocalizationManager.Instance.HasKey(key))
                     break;
-                ApiManager.AddNewTips(BasePlugin.Instance.Info, key);
+                ApiManager.AddNewTips(BaldiExtraPlugin.Instance.Info, key);
             }
 
-            new FoodRecipeData(BasePlugin.Instance.Info)
+            new FoodRecipeData(BaldiExtraPlugin.Instance.Info)
                 .SetRawFood()
                 .RegisterRecipe();
         }  

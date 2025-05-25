@@ -91,7 +91,7 @@ namespace BBE.Patches
                 return;
             if (__instance.icon.spriteRenderer == null)
                 return;
-            if (__instance.item.itemType == Items.Points) __instance.icon.spriteRenderer.sprite = BasePlugin.Asset.Get<Sprite>("YTPMapIcon");
+            if (__instance.item.itemType == Items.Points) __instance.icon.spriteRenderer.sprite = BaldiExtraPlugin.Asset.Get<Sprite>("YTPMapIcon");
         }
     }
 }

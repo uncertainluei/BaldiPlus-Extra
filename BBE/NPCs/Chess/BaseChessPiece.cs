@@ -31,7 +31,7 @@ namespace BBE.NPCs.Chess
         public void SetupBoard(ChessBoard board)
         {
             if (Image == null)
-                Image = UIHelpers.CreateImage(BasePlugin.Asset.Get<Sprite>(Color.ToLower() + Type.ToLower()), board.canvas.transform, Vector3.zero, true, 0.7f);
+                Image = UIHelpers.CreateImage(BaldiExtraPlugin.Asset.Get<Sprite>(Color.ToLower() + Type.ToLower()), board.canvas.transform, Vector3.zero, true, 0.7f);
             Image.transform.localPosition = position.PiecePostion;
             Image.color = UnityEngine.Color.white;
             this.ChessBoard = board;

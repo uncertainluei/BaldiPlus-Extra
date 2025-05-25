@@ -26,7 +26,7 @@ namespace BBE.Extensions
         {
             if (original == null)
             {
-                BasePlugin.Logger.LogError("ConvertTo failed: original is null");
+                BaldiExtraPlugin.Logger.LogError("ConvertTo failed: original is null");
                 return null;
             }
 
@@ -35,7 +35,7 @@ namespace BBE.Extensions
 
             if (!targetType.IsSubclassOf(originalType) && targetType != originalType)
             {
-                BasePlugin.Logger.LogError($"ConvertTo failed: {targetType.Name} is not {originalType.Name}");
+                BaldiExtraPlugin.Logger.LogError($"ConvertTo failed: {targetType.Name} is not {originalType.Name}");
                 return null;
             }
 
@@ -126,7 +126,7 @@ namespace BBE.Extensions
         }
         public static void SetMainTexture(this Material material, string name)
         {
-            material.SetMainTexture(BasePlugin.Asset.Get<Texture2D>(name));
+            material.SetMainTexture(BaldiExtraPlugin.Asset.Get<Texture2D>(name));
         }
         public static string Reverse(this string s)
         {
@@ -328,13 +328,14 @@ namespace BBE.Extensions
         public static Entity CreateEntity(this GameObject target, Collider collider, Collider triggerCollider, Transform rendererBase = null)
         {
             LayerMask mask = target.layer;
+            target.SetActive(false);
             Entity entity = target.AddComponent<Entity>();
-            entity.SetActive(false);
             target.layer = mask;
             entity.rendererBase = rendererBase;
             entity.collider = collider;
             entity.externalActivity = target.AddComponent<ActivityModifier>();
             entity.trigger = triggerCollider;
+            target.SetActive(true);
             return entity;
         }
         public static void SetSpeed(this Navigator navigator, float speed, float maxSpeed)
@@ -522,7 +523,7 @@ namespace BBE.Extensions
                 if (exceptions.Contains(data.Name) && data.GetValue(obj) != null)
                 {
                     res = true;
-                    BasePlugin.Logger.LogWarning(data.Name + " is null!");
+                    BaldiExtraPlugin.Logger.LogWarning(data.Name + " is null!");
                 }
             }
             return res;

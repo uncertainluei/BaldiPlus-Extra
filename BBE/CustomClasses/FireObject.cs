@@ -25,7 +25,7 @@ namespace BBE.CustomClasses
         void Start()
         {
             spriteObject = new GameObject("FireSprite");
-            sprite = spriteObject.AddSpriteRender(BasePlugin.Asset.Get<Sprite>("FireSprite"));
+            sprite = spriteObject.AddSpriteRender(BaldiExtraPlugin.Asset.Get<Sprite>("FireSprite"));
             spriteObject.transform.SetParent(this.gameObject.transform, false);
             collider = gameObject.AddCollider(new Vector3(4.5f, 15f, 4.5f));
             spriteObject.layer = LayerMask.NameToLayer("Billboard");

@@ -17,7 +17,9 @@ namespace BBE.ModItems
 
         private EnvironmentController ec;
         private Dictionary<Fog, float> fogs = new Dictionary<Fog, float>();
-        private static GameObject canvas;
+
+        private GameObject canvas;
+        private Image overlay;
         private static float WorkingTime => 30f;
         private static float CanvasAlphaMax => 0.25f;
         public override bool Use(PlayerManager pm)
@@ -41,20 +43,19 @@ namespace BBE.ModItems
                 yield return null;
             }
             yield return StartCoroutine(Disable());
-            DestroyCanvas();
             gauge.Deactivate();
-            Destroy(gameObject);
             yield break;
         }
         private IEnumerator Use()
         {
             canvas = CreateObjects.CreateCanvas("XrayGoggles", color: "#044a0400");
-            float a = canvas.GetComponentInChildren<Image>().color.a;
+            overlay = canvas.GetComponentInChildren<Image>();
+            float a = overlay.color.a;
             while (a < CanvasAlphaMax)
             {
                 if (a > CanvasAlphaMax) a = CanvasAlphaMax;
                 a += 0.0125f;
-                canvas.GetComponentInChildren<Image>().color = canvas.GetComponentInChildren<Image>().color.Change(a: a);
+                overlay.color = overlay.color.Change(a: a);
                 yield return null;
             }
             fogs.Do(x => x.Key.strength = 0);
@@ -63,25 +64,18 @@ namespace BBE.ModItems
         }
         private IEnumerator Disable()
         {
-            float a = canvas.GetComponentInChildren<Image>().color.a;
+            float a = overlay.color.a;
             while (a > 0)
             {
                 if (a < 0) a = 0;
                 a -= 0.0125f;
-                canvas.GetComponentInChildren<Image>().color = canvas.GetComponentInChildren<Image>().color.Change(a: a);
+                overlay.color = overlay.color.Change(a: a);
                 yield return null;
             }
             fogs.Do(x => x.Key.strength = x.Value);
             ec.UpdateFog();
-        }
-        private void DestroyCanvas()
-        {
             Destroy(canvas);
-            canvas = null;
-        }
-        void OnDestroy()
-        {
-            DestroyCanvas();
+            Destroy(gameObject);
         }
     }
 }

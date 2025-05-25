@@ -19,7 +19,7 @@ namespace BBE.ModItems
         [HarmonyPatch(typeof(ITM_BSODA), nameof(ITM_BSODA.Use))]
         [HarmonyPostfix]
         private static void CorrectSprite(ITM_BSODA __instance) =>
-            __instance.spriteRenderer.sprite = __instance.gameObject.HasComponent<ITM_DSODA>() ? BasePlugin.Asset.Get<Sprite>("DSODASpray") : __instance.spriteRenderer.sprite;
+            __instance.spriteRenderer.sprite = __instance.gameObject.HasComponent<ITM_DSODA>() ? BaldiExtraPlugin.Asset.Get<Sprite>("DSODASpray") : __instance.spriteRenderer.sprite;
         [HarmonyPatch(typeof(ITM_BSODA), nameof(ITM_BSODA.EntityTriggerEnter))]
         [HarmonyPrefix]
         private static void KillCharacterAndPlayer(ITM_BSODA __instance, Collider other)
