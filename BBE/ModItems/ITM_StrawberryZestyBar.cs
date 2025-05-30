@@ -22,7 +22,7 @@ namespace BBE.ModItems
             HudManager hudMan = CoreGameManager.Instance.GetHud(0);
             Image stamImage = hudMan.transform.Find("Staminometer").Find("Overlay").GetComponent<Image>();
             previousSprite = stamImage.sprite;
-            stamImage.sprite = BaldiExtraPlugin.Asset.Get<Sprite>("StrawberryStamina");
+            stamImage.sprite = BasePlugin.Asset.Get<Sprite>("StrawberryStamina");
             if (ModIntegration.CarnivalIsInstalled)
                 SetCarnivalPackCompat(pm, stamImage);
             pm.plm.stamina = pm.plm.staminaMax * 4.5f;
@@ -34,7 +34,7 @@ namespace BBE.ModItems
         {
             if (pm.gameObject.HasComponent<CottonCandyManager>())
             {
-                stamImage.sprite = BaldiExtraPlugin.Asset.Get<Sprite>("StrawberryStaminaAndCottonCandy");
+                stamImage.sprite = BasePlugin.Asset.Get<Sprite>("StrawberryStaminaAndCottonCandy");
             }
         }
         private void SetOldSprite()

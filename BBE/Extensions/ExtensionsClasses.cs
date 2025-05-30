@@ -26,7 +26,7 @@ namespace BBE.Extensions
         {
             if (original == null)
             {
-                BaldiExtraPlugin.Logger.LogError("ConvertTo failed: original is null");
+                BasePlugin.Logger.LogError("ConvertTo failed: original is null");
                 return null;
             }
 
@@ -35,7 +35,7 @@ namespace BBE.Extensions
 
             if (!targetType.IsSubclassOf(originalType) && targetType != originalType)
             {
-                BaldiExtraPlugin.Logger.LogError($"ConvertTo failed: {targetType.Name} is not {originalType.Name}");
+                BasePlugin.Logger.LogError($"ConvertTo failed: {targetType.Name} is not {originalType.Name}");
                 return null;
             }
 
@@ -126,7 +126,7 @@ namespace BBE.Extensions
         }
         public static void SetMainTexture(this Material material, string name)
         {
-            material.SetMainTexture(BaldiExtraPlugin.Asset.Get<Texture2D>(name));
+            material.SetMainTexture(BasePlugin.Asset.Get<Texture2D>(name));
         }
         public static string Reverse(this string s)
         {
@@ -523,7 +523,7 @@ namespace BBE.Extensions
                 if (exceptions.Contains(data.Name) && data.GetValue(obj) != null)
                 {
                     res = true;
-                    BaldiExtraPlugin.Logger.LogWarning(data.Name + " is null!");
+                    BasePlugin.Logger.LogWarning(data.Name + " is null!");
                 }
             }
             return res;

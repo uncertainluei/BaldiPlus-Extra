@@ -235,7 +235,7 @@ namespace BBE.NPCs.Chess
                         positionSquares.Add(position, position.Square);
                 }
             }
-            this.sprite = BaldiExtraPlugin.Asset.Get<Sprite>("ChessBoard");
+            this.sprite = BasePlugin.Asset.Get<Sprite>("ChessBoard");
             selectedTile = null;
             selectedPiece = null;
             this.puzzle = null;

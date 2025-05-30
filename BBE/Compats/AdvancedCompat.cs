@@ -76,18 +76,18 @@ namespace BBE.Compats
 
         public override void Postfix()
         {
-            base.Prefix();
+            base.Postfix();
             ApiManager.CreateNewSpelloon("!", AssetsHelper.CreateTexture("Textures", "Other", "BBE_ADV_ExclamtaionMark.png").ToSprite(30f));
-            ApiManager.AddNewSymbolMachineWords(BaldiExtraPlugin.Instance.Info, "Extra", "Kulak", "Rost!", "Math!", "OhNo!", "RTMT!");
+            ApiManager.AddNewSymbolMachineWords(BasePlugin.Instance.Info, "Extra", "Kulak", "Rost!", "Math!", "OhNo!", "RTMT!");
             for (int i = 1; i<int.MaxValue; i++)
             {
                 string key = "BBE_adv_tip_" + i.ToString();
                 if (!LocalizationManager.Instance.HasKey(key))
                     break;
-                ApiManager.AddNewTips(BaldiExtraPlugin.Instance.Info, key);
+                ApiManager.AddNewTips(BasePlugin.Instance.Info, key);
             }
 
-            new FoodRecipeData(BaldiExtraPlugin.Instance.Info)
+            new FoodRecipeData(BasePlugin.Instance.Info)
                 .SetRawFood()
                 .RegisterRecipe();
         }  

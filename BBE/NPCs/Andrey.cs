@@ -17,14 +17,14 @@ namespace BBE.NPCs
         void IPrefab.SetupAssets()
         {
             audMan = this.GetComponent<AudioManager>();
-            BaldiExtraPlugin.Asset.Add<Sprite>("AndreyAngry", AssetsHelper.CreateTexture("Textures", "NPCs", "Andrey", "BBE_AndreyAngry.png").ToSprite(40));
+            BasePlugin.Asset.Add<Sprite>("AndreyAngry", AssetsHelper.CreateTexture("Textures", "NPCs", "Andrey", "BBE_AndreyAngry.png").ToSprite(40));
 
-            BaldiExtraPlugin.Asset.Add<Sprite>("AndreyTalkiing", AssetsHelper.CreateTexture("Textures", "NPCs", "Andrey", "BBE_AndreyTalking.png").ToSprite(40));
+            BasePlugin.Asset.Add<Sprite>("AndreyTalkiing", AssetsHelper.CreateTexture("Textures", "NPCs", "Andrey", "BBE_AndreyTalking.png").ToSprite(40));
 
-            BaldiExtraPlugin.Asset.Add("AndreyBaseSprite", AssetsHelper.CreateTexture("Textures", "NPCs", "Andrey", "BBE_AndreyHappy.png").ToSprite(40));
+            BasePlugin.Asset.Add("AndreyBaseSprite", AssetsHelper.CreateTexture("Textures", "NPCs", "Andrey", "BBE_AndreyHappy.png").ToSprite(40));
 
-            BaldiExtraPlugin.Asset.Add<Sprite>("AndreyCry", AssetsHelper.CreateTexture("Textures", "NPCs", "Andrey", "BBE_AndreyCry.png").ToSprite(40));
-            spriteRenderer[0].sprite = BaldiExtraPlugin.Asset.AddAndReturn<Sprite>("AndreyBaseSprite", AssetsHelper.CreateTexture("Textures", "NPCs", "Andrey", "BBE_AndreyHappy.png").ToSprite(40));
+            BasePlugin.Asset.Add<Sprite>("AndreyCry", AssetsHelper.CreateTexture("Textures", "NPCs", "Andrey", "BBE_AndreyCry.png").ToSprite(40));
+            spriteRenderer[0].sprite = BasePlugin.Asset.AddAndReturn<Sprite>("AndreyBaseSprite", AssetsHelper.CreateTexture("Textures", "NPCs", "Andrey", "BBE_AndreyHappy.png").ToSprite(40));
             angrySounds = new List<SoundObject>() { };
             for (int i = 1; i < 5; i++)
             {
@@ -93,16 +93,16 @@ namespace BBE.NPCs
             Color color = AssetsHelper.GenerateRandomColor(false);
             Color color2 = AssetsHelper.GenerateRandomColor(false);
             Color color3 = AssetsHelper.GenerateRandomColor(false);
-            angry = BaldiExtraPlugin.Asset.Get<Sprite>("AndreyAngry").ReplaceColor(Color.white, color).ReplaceColor(AssetsHelper.ColorFromHex("3030ff"), color2)
+            angry = BasePlugin.Asset.Get<Sprite>("AndreyAngry").ReplaceColor(Color.white, color).ReplaceColor(AssetsHelper.ColorFromHex("3030ff"), color2)
                 .ReplaceColor(AssetsHelper.ColorFromHex("808080"), color3);
 
-            talking = BaldiExtraPlugin.Asset.Get<Sprite>("AndreyTalkiing").ReplaceColor(Color.white, color).
+            talking = BasePlugin.Asset.Get<Sprite>("AndreyTalkiing").ReplaceColor(Color.white, color).
                 ReplaceColor(AssetsHelper.ColorFromHex("3030ff"), color2).ReplaceColor(AssetsHelper.ColorFromHex("808080"), color3);
 
-            happy = BaldiExtraPlugin.Asset.Get<Sprite>("AndreyBaseSprite").ReplaceColor(Color.white, color).
+            happy = BasePlugin.Asset.Get<Sprite>("AndreyBaseSprite").ReplaceColor(Color.white, color).
                 ReplaceColor(AssetsHelper.ColorFromHex("3030ff"), color2).ReplaceColor(AssetsHelper.ColorFromHex("808080"), color3);
 
-            cry = BaldiExtraPlugin.Asset.Get<Sprite>("AndreyCry").ReplaceColor(Color.white, color).
+            cry = BasePlugin.Asset.Get<Sprite>("AndreyCry").ReplaceColor(Color.white, color).
                 ReplaceColor(AssetsHelper.ColorFromHex("3030ff"), color2).ReplaceColor(AssetsHelper.ColorFromHex("808080"), color3);
             behaviorStateMachine.ChangeState(new AndreyAnnoying(this));
         }

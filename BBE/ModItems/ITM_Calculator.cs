@@ -61,10 +61,10 @@ namespace BBE.ModItems
             string balloonColor = isCorrupted || !useGreenBalloon ? "BalloonRed" : "BalloonGreen";
             string spriteName = $"{balloonColor}{numball.Value}";
 
-            if (BaldiExtraPlugin.Asset.Exists<Sprite>(spriteName, out Sprite sprite))
+            if (BasePlugin.Asset.Exists<Sprite>(spriteName, out Sprite sprite))
                 numball.sprite.GetComponent<SpriteRenderer>().sprite = sprite;
             else
-                BaldiExtraPlugin.Logger.LogWarning($"Unknown NumBall {numball.Value}");
+                BasePlugin.Logger.LogWarning($"Unknown NumBall {numball.Value}");
         }
     }
 }

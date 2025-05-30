@@ -24,7 +24,7 @@ namespace BBE.NPCs.Chess
         public Vector4 Square { get; }
         public List<Vector2> Pixels { get; }
         public Vector3 PiecePostion { get; }
-        public Color[] PixelData => BaldiExtraPlugin.Asset.Get<Color[]>(path);
+        public Color[] PixelData => BasePlugin.Asset.Get<Color[]>(path);
         private string path;
         public Image PointImage { get; private set; }
         public BaseChessPiece PieceAtPosition
@@ -127,7 +127,7 @@ namespace BBE.NPCs.Chess
             if (chessBoard == null)
                 return;
             if (PointImage == null)
-                PointImage = UIHelpers.CreateImage(BaldiExtraPlugin.Asset.Get<Sprite>("ChessWhitePoint"), chessBoard.canvas.transform, PiecePostion, true, 0.7f);
+                PointImage = UIHelpers.CreateImage(BasePlugin.Asset.Get<Sprite>("ChessWhitePoint"), chessBoard.canvas.transform, PiecePostion, true, 0.7f);
             PointImage.color = color;
             PointImage.transform.localPosition = PiecePostion;
             if (PieceAtPosition != null)

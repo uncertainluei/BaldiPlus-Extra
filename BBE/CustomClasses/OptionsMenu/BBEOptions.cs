@@ -49,14 +49,14 @@ namespace BBE.CustomClasses.OptionsMenu
                 if (toggleOptionIndex < 0)
                     toggleOptionIndex = toggleOptions.Count - 1;
                 SetCurrentToggleOption();
-            }, BaldiExtraPlugin.Asset.Get<Sprite>("MenuArrowSheet_2"), BaldiExtraPlugin.Asset.Get<Sprite>("MenuArrowSheet_0"), "PreviousToggle", new Vector2(-100, 15));
+            }, BasePlugin.Asset.Get<Sprite>("MenuArrowSheet_2"), BasePlugin.Asset.Get<Sprite>("MenuArrowSheet_0"), "PreviousToggle", new Vector2(-100, 15));
             CreateButton(() =>
             {
                 toggleOptionIndex++;
                 if (toggleOptionIndex >= toggleOptions.Count)
                     toggleOptionIndex = 0;
                 SetCurrentToggleOption();
-            }, BaldiExtraPlugin.Asset.Get<Sprite>("MenuArrowSheet_3"), BaldiExtraPlugin.Asset.Get<Sprite>("MenuArrowSheet_1"), "NextToggle", new Vector2(100, 15));
+            }, BasePlugin.Asset.Get<Sprite>("MenuArrowSheet_3"), BasePlugin.Asset.Get<Sprite>("MenuArrowSheet_1"), "NextToggle", new Vector2(100, 15));
             StandardMenuButton title = CreateTextButton(() => { }, "ToggleOptionsTitle", "BBE_ToggleOptionsTitle", new Vector3(0, 80, 0), BaldiFonts.ComicSans24, TextAlignmentOptions.Center, Vector2.one, Color.black);
             title.text.autoSizeTextContainer = false;
             title.text.autoSizeTextContainer = true;

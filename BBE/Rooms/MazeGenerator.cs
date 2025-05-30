@@ -63,7 +63,7 @@ namespace BBE.Rooms
                             IntVector2 intVector = direction.ToIntVector2();
                             intVector.x *= i * x;
                             intVector.z *= i * z;
-                            BaldiExtraPlugin.Logger.LogInfo(intVector.ToString());
+                            BasePlugin.Logger.LogInfo(intVector.ToString());
                             cells.Add(EC.CellFromPosition(intVector+center.position));
                         }
                     }

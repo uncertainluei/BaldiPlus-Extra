@@ -13,7 +13,7 @@ namespace BBE.ModItems
         private SpriteRenderer sprite;
         void Start()
         {
-            sprite = gameObject.AddSpriteRender(BaldiExtraPlugin.Asset.Get<Sprite>("MagicRubyPortal"));
+            sprite = gameObject.AddSpriteRender(BasePlugin.Asset.Get<Sprite>("MagicRubyPortal"));
             gameObject.layer = LayerMask.NameToLayer("Billboard");
             sprite.material = new Material(ObjectCreators.SpriteMaterial);
             gameObject.transform.localScale = new Vector3(0.75f, 0.75f, 0.75f);

@@ -13,7 +13,7 @@ namespace BBE.Compats.EditorCompat
         {
             base.SetupMaterials(renderer, outside);
             renderer.materials[0].SetMaskTexture(BaldiLevelEditorPlugin.Instance.assetMan.Get<Texture2D>("SwingDoorMask"));
-            renderer.materials[1].SetMainTexture(BaldiExtraPlugin.Asset.Get<Texture2D>("YTPDoorMaterial"));
+            renderer.materials[1].SetMainTexture(BasePlugin.Asset.Get<Texture2D>("YTPDoorMaterial"));
         }
     }
 }

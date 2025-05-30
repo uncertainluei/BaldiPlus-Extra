@@ -22,9 +22,9 @@ namespace BBE.Compats.EditorCompat
         public static void AddNPC(PlusLevelEditor __instance, NPC toAdd, Texture2D icon)
         {
             string name = toAdd.Character.ToStringExtended();
-            if (!BaldiExtraPlugin.Asset.Exists("Editor_NPC" + name, out Sprite sprite))
+            if (!BasePlugin.Asset.Exists("Editor_NPC" + name, out Sprite sprite))
             {
-                sprite = BaldiExtraPlugin.Asset.AddAndReturn("Editor_NPC" + name, icon.ToSprite());
+                sprite = BasePlugin.Asset.AddAndReturn("Editor_NPC" + name, icon.ToSprite());
             }
             if (!BaldiLevelEditorPlugin.characterObjects.ContainsKey(name))
                 BaldiLevelEditorPlugin.characterObjects.Add(name, BaldiLevelEditorPlugin.StripAllScripts(toAdd.gameObject, true));
@@ -34,12 +34,12 @@ namespace BBE.Compats.EditorCompat
         }
         public static void AddItem(PlusLevelEditor __instance, ItemMetaData toAdd)
         {
-            if (!BaldiExtraPlugin.Asset.Exists("Editor_Item_"+toAdd.nameKey, out Sprite sprite))
+            if (!BasePlugin.Asset.Exists("Editor_Item_"+toAdd.nameKey, out Sprite sprite))
             {
                 if (toAdd.value.itemSpriteSmall != null)
-                    sprite = BaldiExtraPlugin.Asset.AddAndReturn("Editor_Item_" + toAdd.nameKey, toAdd.value.itemSpriteSmall.ResizeSprite(32, 32));
+                    sprite = BasePlugin.Asset.AddAndReturn("Editor_Item_" + toAdd.nameKey, toAdd.value.itemSpriteSmall.ResizeSprite(32, 32));
                 else if (toAdd.value.itemSpriteLarge != null)
-                    sprite = BaldiExtraPlugin.Asset.AddAndReturn("Editor_Item_" + toAdd.nameKey, toAdd.value.itemSpriteLarge.ResizeSprite(32, 32));
+                    sprite = BasePlugin.Asset.AddAndReturn("Editor_Item_" + toAdd.nameKey, toAdd.value.itemSpriteLarge.ResizeSprite(32, 32));
                 else
                     return;
             }
@@ -94,14 +94,14 @@ namespace BBE.Compats.EditorCompat
         {
             if (FunSettingTool.all.IfExists(x => x.Key == vector, out var data))
             {
-                BaldiExtraPlugin.Logger.LogDebug(data.Value.funSetting.ToString());
+                BasePlugin.Logger.LogDebug(data.Value.funSetting.ToString());
             }
         }
         [HarmonyPatch(typeof(PlusLevelEditor), nameof(PlusLevelEditor.Initialize))]
         [HarmonyPostfix]
         private static void AddData(PlusLevelEditor __instance)
         {
-            foreach (ItemMetaData meta in ItemMetaStorage.Instance.GetAllFromMod(BaldiExtraPlugin.Instance.Info)) 
+            foreach (ItemMetaData meta in ItemMetaStorage.Instance.GetAllFromMod(BasePlugin.Instance.Info)) 
             {
                 AddItem(__instance, meta);
             }/*

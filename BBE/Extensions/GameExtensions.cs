@@ -114,7 +114,7 @@ namespace BBE.Extensions
             return pickup;
         }
 
-        public static SpriteRenderer AddSpriteRender(this GameObject obj, string sprite) => obj.AddSpriteRender(BaldiExtraPlugin.Asset.Get<Sprite>(sprite));
+        public static SpriteRenderer AddSpriteRender(this GameObject obj, string sprite) => obj.AddSpriteRender(BasePlugin.Asset.Get<Sprite>(sprite));
         public static SpriteRenderer AddSpriteRender(this GameObject obj, Sprite sprite)
         {
             SpriteRenderer res = obj.AddComponent<SpriteRenderer>();
@@ -190,13 +190,13 @@ namespace BBE.Extensions
 
         public static void PlaySingle(this AudioManager audMan, string key, bool subtitle = true)
         {
-            SoundObject sound = BaldiExtraPlugin.Asset.Get<SoundObject>(key);
+            SoundObject sound = BasePlugin.Asset.Get<SoundObject>(key);
             sound.subtitle = subtitle;
             audMan.PlaySingle(sound);
         }
         public static void QueueAudio(this AudioManager audMan, string key, bool subtitle = true)
         {
-            SoundObject sound = BaldiExtraPlugin.Asset.Get<SoundObject>(key);
+            SoundObject sound = BasePlugin.Asset.Get<SoundObject>(key);
             sound.subtitle = subtitle;
             audMan.QueueAudio(sound);
         }

@@ -68,7 +68,7 @@ namespace BBE.Creators
 
         public static void CreateItems()
         {
-            ItemObject item = new ItemBuilder(BaldiExtraPlugin.Instance.Info)
+            ItemObject item = new ItemBuilder(BasePlugin.Instance.Info)
                 .SetItemComponent<ITM_Calculator>()
                 .SetNameAndDescription("BBE_Item_Calculator", "BBE_Item_Calculator_Desc")
                 .SetEnum(ModdedItems.Calculator)
@@ -81,7 +81,7 @@ namespace BBE.Creators
             AddToShop(item, 90, 100, 0, 60);
 
 
-            item = new ItemBuilder(BaldiExtraPlugin.Instance.Info)
+            item = new ItemBuilder(BasePlugin.Instance.Info)
                 .SetItemComponent<ITM_GravityDevice>()
                 .SetNameAndDescription("BBE_Item_GravityDevice", "BBE_Item_GravityDevice_Desc")
                 .SetEnum(ModdedItems.GravityDevice)
@@ -95,7 +95,7 @@ namespace BBE.Creators
             ((ITM_GravityDevice)item.item).gaugeIcon = item.itemSpriteSmall;
 
 
-            item = new ItemBuilder(BaldiExtraPlugin.Instance.Info)
+            item = new ItemBuilder(BasePlugin.Instance.Info)
                 .SetItemComponent<ITM_SpeedPotion>()
                 .SetNameAndDescription("BBE_Item_SpeedSerum", "BBE_Item_SpeedSerum_Desc")
                 .SetEnum(ModdedItems.PotionOfSpeed)
@@ -111,7 +111,7 @@ namespace BBE.Creators
             ((ITM_SpeedPotion)item.item).gaugeIcon = item.itemSpriteSmall;
 
 
-            item = new ItemBuilder(BaldiExtraPlugin.Instance.Info)
+            item = new ItemBuilder(BasePlugin.Instance.Info)
                 .SetItemComponent<ITM_Shield>()
                 .SetNameAndDescription("BBE_Item_Shield", "BBE_Item_Shield_Desc")
                 .SetEnum(ModdedItems.Shield)
@@ -126,7 +126,7 @@ namespace BBE.Creators
 
 
             //! Glue
-            item = new ItemBuilder(BaldiExtraPlugin.Instance.Info)
+            item = new ItemBuilder(BasePlugin.Instance.Info)
                 .SetItemComponent<ITM_Glue>()
                 .SetNameAndDescription("BBE_Item_Glue", "BBE_Item_Glue_Desc")
                 .SetEnum(ModdedItems.Glue)
@@ -140,7 +140,7 @@ namespace BBE.Creators
             AddToFloors(item, 75, 85, 70, 60);
 
 
-            item = new ItemBuilder(BaldiExtraPlugin.Instance.Info)
+            item = new ItemBuilder(BasePlugin.Instance.Info)
                 .SetItemComponent<ITM_IceBomb>()
                 .SetNameAndDescription("BBE_Item_IceBomb", "BBE_Item_IceBomb_Desc")
                 .SetEnum(ModdedItems.IceBomb)
@@ -153,7 +153,7 @@ namespace BBE.Creators
             AddToShop(item, 40, 45, 40, 45);
 
 
-            item = new ItemBuilder(BaldiExtraPlugin.Instance.Info)
+            item = new ItemBuilder(BasePlugin.Instance.Info)
                 .SetItemComponent<ITM_MagicRuby>()
                 .SetNameAndDescription("BBE_Item_MagicRuby", "BBE_Item_MagicRuby_Desc")
                 .SetEnum(ModdedItems.MagicRuby)
@@ -166,7 +166,7 @@ namespace BBE.Creators
             AddToShop(item, 40, 45, 40, 45);
 
             
-            item = new ItemBuilder(BaldiExtraPlugin.Instance.Info)
+            item = new ItemBuilder(BasePlugin.Instance.Info)
                 .SetItemComponent<ITM_StrawberryZestyBar>()
                 .SetNameAndDescription("BBE_Item_StrawberryZestyBar", "BBE_Item_StrawberryZestyBar_Desc")
                 .SetEnum(ModdedItems.StrawberryZestyBar)
@@ -188,13 +188,13 @@ namespace BBE.Creators
             dsoda.itemSpriteSmall = AssetsHelper.CreateTexture("Textures", "Items", "BBE_DSodaSmall.png").ToSprite(25f);
             dsoda.itemSpriteLarge = AssetsHelper.CreateTexture("Textures", "Items", "BBE_DSodaLarge.png").ToSprite(50f);
             dsoda.itemType = ModdedItems.DSODA.ToItemsEnum();
-            ItemMetaData data = dsoda.AddMeta(BaldiExtraPlugin.Instance, ItemFlags.CreatesEntity | ItemFlags.Persists);
+            ItemMetaData data = dsoda.AddMeta(BasePlugin.Instance, ItemFlags.CreatesEntity | ItemFlags.Persists);
             data.tags.AddRange(ItemMetaStorage.Instance.FindByEnum(Items.Bsoda).tags);
             data.tags.Add("BBE_IgnoreRandomItemsFunSetting");
             data.tags.Remove("adv_perfect");
 
 
-            item = new ItemBuilder(BaldiExtraPlugin.Instance.Info)
+            item = new ItemBuilder(BasePlugin.Instance.Info)
                 .SetItemComponent<ITM_PaintBucket>()
                 .SetNameAndDescription("BBE_Item_PaintBucket", "BBE_Item_PaintBucket_Desc")
                 .SetEnum(ModdedItems.PaintBucket)
@@ -206,7 +206,7 @@ namespace BBE.Creators
                 .BuildAndSetup();
             AddToShop(item, 30, 30, 30, 30);
 
-            item = new ItemBuilder(BaldiExtraPlugin.Instance.Info)
+            item = new ItemBuilder(BasePlugin.Instance.Info)
                 .SetItemComponent<ITM_TimeRewindElectronicWristwatch>()
                 .SetNameAndDescription("BBE_Item_TimeRewinderElectronicWristwatch", "BBE_Item_TimeRewinderElectronicWristwatch_Desc")
                 .SetEnum(ModdedItems.TimeRewinderElectronicWristwatch)
@@ -222,7 +222,7 @@ namespace BBE.Creators
             ((ITM_TimeRewindElectronicWristwatch)item.item).gaugeIcon = item.itemSpriteSmall;
 
 
-            new ItemBuilder(BaldiExtraPlugin.Instance.Info)
+            new ItemBuilder(BasePlugin.Instance.Info)
                 .SetItemComponent<ITM_Weight>()
                 .SetNameAndDescription("BBE_Item_Weight", "BBE_Item_Weight_Desc")
                 .SetEnum(ModdedItems.Weight)
@@ -232,7 +232,7 @@ namespace BBE.Creators
                 .SetShopPrice()
                 .BuildAndSetup();
             
-            item = new ItemBuilder(BaldiExtraPlugin.Instance.Info)
+            item = new ItemBuilder(BasePlugin.Instance.Info)
                 .SetItemComponent<ITM_XRayGoggles>()
                 .SetNameAndDescription("BBE_Item_XrayGoggles", "BBE_Item_XrayGoggles_Desc")
                 .SetEnum(ModdedItems.XrayGoggles)
@@ -247,7 +247,7 @@ namespace BBE.Creators
             ((ITM_XRayGoggles)item.item).gaugeIcon = item.itemSpriteSmall;
 
 
-            new ItemBuilder(BaldiExtraPlugin.Instance.Info)
+            new ItemBuilder(BasePlugin.Instance.Info)
                 .SetItemComponent<ITM_RubyClock>()
                 .SetNameAndDescription("BBE_Item_RubyClock", "BBE_Item_RubyClock_Desc")
                 .SetEnum(ModdedItems.RubyClock)
@@ -260,7 +260,7 @@ namespace BBE.Creators
             AddToShop(item, 10, 15, 20, 30);
             AddToFloors(item, 15, 20, 20, 30);*/
 
-            item = new ItemBuilder(BaldiExtraPlugin.Instance.Info)
+            item = new ItemBuilder(BasePlugin.Instance.Info)
                 .SetItemComponent<ITM_NoSign>()
                 .SetNameAndDescription("BBE_Item_NoSign", "BBE_Item_NoSign_Desc")
                 .SetEnum(ModdedItems.NoSign)
@@ -274,7 +274,7 @@ namespace BBE.Creators
             AddToFloors(item, 10, 25, 40, 50);*/
 
 
-            item = new ItemBuilder(BaldiExtraPlugin.Instance.Info)
+            item = new ItemBuilder(BasePlugin.Instance.Info)
                 .SetItemComponent<ITM_RoomTeleporter>()
                 .SetNameAndDescription("BBE_Item_RoomTeleporter", "BBE_Item_RoomTeleporter_Desc")
                 .SetEnum(ModdedItems.RoomTeleporter)
@@ -287,7 +287,7 @@ namespace BBE.Creators
             AddToFloorsAndShop(item, 40, 45, 50, 70);
             AddToMysteryRoom(item, 30);
 
-            item = new ItemBuilder(BaldiExtraPlugin.Instance.Info)
+            item = new ItemBuilder(BasePlugin.Instance.Info)
                 .SetItemComponent<ITM_FlipperZero>()
                 .SetNameAndDescription("BBE_Item_FlipperZero", "BBE_Item_FlipperZero_Desc")
                 .SetEnum(ModdedItems.FlipperZero)
@@ -300,7 +300,7 @@ namespace BBE.Creators
             AddToFloorsAndShop(item, 20, 25, 30, 50);
 
 
-            new ItemBuilder(BaldiExtraPlugin.Instance.Info)
+            new ItemBuilder(BasePlugin.Instance.Info)
                 .SetItemComponent<ITM_DashPad>()
                 .SetNameAndDescription("BBE_Item_BaldiDashPad", "BBE_Item_BaldiDashPad_Desc")
                 .SetEnum(ModdedItems.BaldiDashPad)
@@ -313,7 +313,7 @@ namespace BBE.Creators
             AddToFloors(item, 5, 5, 5, 5);*/
 
 
-            new ItemBuilder(BaldiExtraPlugin.Instance.Info)
+            new ItemBuilder(BasePlugin.Instance.Info)
                 .SetItemComponent<Item>()
                 .SetNameAndDescription("BBE_Item_ChessBook", "BBE_Item_ChessBook_Desc")
                 .SetEnum(ModdedItems.ChessBook)
@@ -324,7 +324,7 @@ namespace BBE.Creators
                 .SetMeta(ItemFlags.NoUses)
                 .BuildAndSetup();
 
-            item = new ItemBuilder(BaldiExtraPlugin.Instance.Info)
+            item = new ItemBuilder(BasePlugin.Instance.Info)
                 .SetItemComponent<ITM_MagicSwapCard>()
                 .SetNameAndDescription("BBE_Item_MagicSwapCard", "BBE_Item_MagicSwapCard_Desc")
                 .SetEnum(ModdedItems.UnoReverseCard)
@@ -338,7 +338,7 @@ namespace BBE.Creators
 
 
 
-            item = new ItemBuilder(BaldiExtraPlugin.Instance.Info)
+            item = new ItemBuilder(BasePlugin.Instance.Info)
                 .SetItemComponent<ITM_BaldiTeleporter>()
                 .SetNameAndDescription("BBE_Item_BaldiTeleporter", "BBE_Item_BaldiTeleporter_Desc")
                 .SetEnum(ModdedItems.BaldiTeleporter)

@@ -148,7 +148,7 @@ namespace BBE.CustomClasses.FunSettings
             currentProblem = 1;
             wrongTotal = 0;
             ec = BaseGameManager.Instance.Ec;
-            canvas = CreateObjects.CreateCanvas("YCTP_Canvas_ExtraMod", sprite: BaldiExtraPlugin.Asset.Get<Sprite>("YCTPCanvas"));
+            canvas = CreateObjects.CreateCanvas("YCTP_Canvas_ExtraMod", sprite: BasePlugin.Asset.Get<Sprite>("YCTPCanvas"));
             playerAnswer = CreateObjects.CreateText("PlayerAnswer_Text", "", true, new Vector3(-54, -77.4f, -36), new Vector3(10, 10, 10), canvas.transform, BaldiFonts.ComicSans24);
             playerAnswer.isOrthographic = false;
             problemText = CreateObjects.CreateText("ProblemText_Text", "", true, new Vector3(-90, -5, -36), new Vector3(10, 10, 10), canvas.transform, BaldiFonts.ComicSans18);
@@ -159,7 +159,7 @@ namespace BBE.CustomClasses.FunSettings
             {
                 GameObject game = new GameObject("Checkmark");
                 Image res = game.AddComponent<Image>();
-                res.sprite = BaldiExtraPlugin.Asset.Get<Sprite>("CheckMark");
+                res.sprite = BasePlugin.Asset.Get<Sprite>("CheckMark");
                 game.transform.SetParent(canvas.transform);
                 game.SetActive(false);
                 game.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
@@ -277,7 +277,7 @@ namespace BBE.CustomClasses.FunSettings
             GameObject game = marks[currentProblem - 1];
             if (wrongAnswers.Contains(playerAnswer.text) || int.Parse(playerAnswer.text) != answer)
             {
-                game.GetComponent<Image>().sprite = BaldiExtraPlugin.Asset.Get<Sprite>("CrossMark");
+                game.GetComponent<Image>().sprite = BasePlugin.Asset.Get<Sprite>("CrossMark");
                 wrongTotal++;
             }
             game.SetActive(true);

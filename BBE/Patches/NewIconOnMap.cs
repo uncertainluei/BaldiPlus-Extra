@@ -17,6 +17,9 @@ namespace BBE.Patches
     [HarmonyPatch]
     class NewIconsOnMap
     {
+        // Functionality removed in favor of Minimap Icons+ and Crispy+
+
+        /*
         public static Material CreateMapMaterial(string fileName) => ObjectCreators.CreateMapTileShader(AssetsHelper.CreateTexture("Textures", "MapIcons", fileName));
         // RoomCategory roomCategory - category of the room for which you want to create an icon
         // string fileName - texture file name
@@ -80,6 +83,8 @@ namespace BBE.Patches
             //CreateMapMaterial(RoomCategory.Office, "BBE_PrincipalRoomBG.png");
             CreateMapMaterial("Cafeteria", "BBE_CafeteriaBG.png");
         }
+        */
+
         [HarmonyPatch(typeof(Pickup), "Start")]
         [HarmonyPatch(typeof(Pickup), "AssignItem")]
         [HarmonyPostfix]
@@ -91,7 +96,7 @@ namespace BBE.Patches
                 return;
             if (__instance.icon.spriteRenderer == null)
                 return;
-            if (__instance.item.itemType == Items.Points) __instance.icon.spriteRenderer.sprite = BaldiExtraPlugin.Asset.Get<Sprite>("YTPMapIcon");
+            if (__instance.item.itemType == Items.Points || __instance.item.item is ITM_YTPs) __instance.icon.spriteRenderer.sprite = BasePlugin.Asset.Get<Sprite>("YTPMapIcon");
         }
     }
 }

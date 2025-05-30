@@ -20,24 +20,24 @@ namespace BBE.Patches
             {
                 __instance.defaultMat = new Material(__instance.defaultMat)
                 {
-                    mainTexture = BaldiExtraPlugin.Asset.Get<Texture2D>("NotEqualMMDefault")
+                    mainTexture = BasePlugin.Asset.Get<Texture2D>("NotEqualMMDefault")
                 };
                 __instance.meshRenderer.materials[0] = new Material(__instance.meshRenderer.materials[0])
                 {
-                    mainTexture = BaldiExtraPlugin.Asset.Get<Texture2D>("NotEqualMMDefault")
+                    mainTexture = BasePlugin.Asset.Get<Texture2D>("NotEqualMMDefault")
                 };
                 __instance.meshRenderer.material = new Material(__instance.meshRenderer.material)
                 {
-                    mainTexture = BaldiExtraPlugin.Asset.Get<Texture2D>("NotEqualMMDefault")
+                    mainTexture = BasePlugin.Asset.Get<Texture2D>("NotEqualMMDefault")
                 };
                 // I don't know why it works, but it works
                 __instance.correctMat = new Material(__instance.correctMat)
                 {
-                    mainTexture = BaldiExtraPlugin.Asset.Get<Texture2D>("NotEqualMMRight")
+                    mainTexture = BasePlugin.Asset.Get<Texture2D>("NotEqualMMRight")
                 };
                 __instance.incorrectMat = new Material(__instance.incorrectMat)
                 {
-                    mainTexture = BaldiExtraPlugin.Asset.Get<Texture2D>("NotEqualMMWrong")
+                    mainTexture = BasePlugin.Asset.Get<Texture2D>("NotEqualMMWrong")
                 };
                 if (__instance.totalProblems >= __instance.currentNumbers.Count)
                     __instance.SetProblemsCount(__instance.currentNumbers.Count - 1);

@@ -16,8 +16,8 @@ namespace BBE.Patches
         [HarmonyPrefix]
         private static void AddNewItems(PartyEvent __instance)
         {
-            if (BaldiExtraPlugin.CurrentFloorData != null)
-                __instance.potentialItems = __instance.potentialItems.AddRangeToArray(BaldiExtraPlugin.CurrentFloorData.partyEventItems.ToArray());
+            if (BasePlugin.CurrentFloorData != null)
+                __instance.potentialItems = __instance.potentialItems.AddRangeToArray(BasePlugin.CurrentFloorData.partyEventItems.ToArray());
         }
     }
 }

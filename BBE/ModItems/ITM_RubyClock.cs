@@ -67,7 +67,7 @@ namespace BBE.ModItems
             finished = false;
             ec = pm.ec;
             mapIcon = Instantiate(AssetsHelper.LoadAsset<NoLateIcon>(x => x.timeText != null));
-            mapIcon.spriteRenderer.sprite = BaldiExtraPlugin.Asset.Get<Sprite>("RubyClockIcon");
+            mapIcon.spriteRenderer.sprite = BasePlugin.Asset.Get<Sprite>("RubyClockIcon");
             mapIcon.gameObject.SetActive(true);
             mapIcon = (NoLateIcon)ec.map.AddIcon(mapIcon, transform, Color.white);
             mapIcon.timeText.color = Color.red;

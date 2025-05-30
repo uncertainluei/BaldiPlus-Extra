@@ -112,7 +112,7 @@ namespace BBE.Patches
             }
             if (funSettings.EmptyOrNull()) return;
             BG = __instance.endingError.transform.Find("BG").GetComponent<Image>();
-            BG.sprite = BaldiExtraPlugin.Asset.Get<Sprite>("FunSettingUnlockedBG");
+            BG.sprite = BasePlugin.Asset.Get<Sprite>("FunSettingUnlockedBG");
             TextMeshProUGUI text = __instance.endingError.transform.Find("Text (TMP)").GetComponent<TextMeshProUGUI>();
             text.color = Color.green;
 

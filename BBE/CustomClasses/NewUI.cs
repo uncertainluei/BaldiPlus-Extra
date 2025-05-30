@@ -79,8 +79,8 @@ namespace BBE.CustomClasses
                 }
             }
             FunSetting.GetAll().Do(x => x.Set(false));
-            previousFunSettingButton = CreateObjects.CreateButtonWithSprite("PreviousFunSettingButton", BaldiExtraPlugin.Asset.GetOrAddFromResources<Sprite>("MenuArrowSheet_2"),
-            BaldiExtraPlugin.Asset.GetOrAddFromResources<Sprite>("MenuArrowSheet_0"), textTransform.transform.parent, new Vector3(-180f, -150f, z));
+            previousFunSettingButton = CreateObjects.CreateButtonWithSprite("PreviousFunSettingButton", BasePlugin.Asset.GetOrAddFromResources<Sprite>("MenuArrowSheet_2"),
+            BasePlugin.Asset.GetOrAddFromResources<Sprite>("MenuArrowSheet_0"), textTransform.transform.parent, new Vector3(-180f, -150f, z));
             previousFunSettingButton.transform.SetSiblingIndex(1);
             previousFunSettingButton.OnPress = new UnityEvent();
             audioManager = gameObject.AddAudioManager();
@@ -91,8 +91,8 @@ namespace BBE.CustomClasses
                 ChangeCurrentIndex(false);
                 ChangeFunSettingsPage();
             });
-            nextFunSettingButton = CreateObjects.CreateButtonWithSprite("NextFunSettingButton", BaldiExtraPlugin.Asset.GetOrAddFromResources<Sprite>("MenuArrowSheet_3"),
-            BaldiExtraPlugin.Asset.GetOrAddFromResources<Sprite>("MenuArrowSheet_1"), textTransform.transform.parent, new Vector3(180f, -150f, z));
+            nextFunSettingButton = CreateObjects.CreateButtonWithSprite("NextFunSettingButton", BasePlugin.Asset.GetOrAddFromResources<Sprite>("MenuArrowSheet_3"),
+            BasePlugin.Asset.GetOrAddFromResources<Sprite>("MenuArrowSheet_1"), textTransform.transform.parent, new Vector3(180f, -150f, z));
             nextFunSettingButton.transform.SetSiblingIndex(1);
             nextFunSettingButton.OnPress = new UnityEvent();
             nextFunSettingButton.OnPress.AddListener(() =>

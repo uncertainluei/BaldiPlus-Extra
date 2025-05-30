@@ -22,7 +22,7 @@ namespace BBE.ModItems
             audMan = gameObject.AddAudioManager();
             PlayerEnterTimes = 0;
             sprite = gameObject.AddComponent<SpriteRenderer>();
-            sprite.sprite = BaldiExtraPlugin.Asset.Get<Sprite>("GlueResidue");
+            sprite.sprite = BasePlugin.Asset.Get<Sprite>("GlueResidue");
             collider = gameObject.AddCollider(new Vector3(4.5f, 15f, 4.5f));
         }
         private void OnTriggerEnter(Collider other)

@@ -38,12 +38,12 @@ namespace BBE
     // Compats
     [BepInDependency("mtm101.rulerp.baldiplus.leveleditor", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency("rost.moment.baldiplus.achievements", BepInDependency.DependencyFlags.SoftDependency)]
-    public class BaldiExtraPlugin : BaseUnityPlugin
+    public class BasePlugin : BaseUnityPlugin
     {
         public new static ManualLogSource Logger { get; private set; }
         public static AssetManager Asset { get; private set; }
         public static Harmony Harmony { get; private set; }
-        public static BaldiExtraPlugin Instance { get; private set; }
+        public static BasePlugin Instance { get; private set; }
         public static string CurrentFloor
         {
             get
@@ -161,6 +161,7 @@ namespace BBE
             BaseCompat.CallPostfixes();
             yield break;
         }
+
         private void Awake()
         {
             Harmony = new Harmony("rost.moment.baldiplus.extramod");

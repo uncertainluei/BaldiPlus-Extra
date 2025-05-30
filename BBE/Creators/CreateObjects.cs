@@ -22,54 +22,54 @@ namespace BBE.Creators
 
             Sprite[] arrows = sprites.Where(x => x.texture.name == "MenuArrowSheet").ToArray();
             for (int i = 0; i < 4; i++)
-                BaldiExtraPlugin.Asset.Add("MenuArrowSheet_" + i, arrows.First(x => x.name == "MenuArrowSheet_" + i));
+                BasePlugin.Asset.Add("MenuArrowSheet_" + i, arrows.First(x => x.name == "MenuArrowSheet_" + i));
 
             for (int i = 0; i < 19; i++)
             {
-                BaldiExtraPlugin.Asset.Add("BalloonRed" + i, AssetsHelper.CreateTexture("Textures", "Balloons", "BBE_" + i + "Red.png").ToSprite(30));
-                BaldiExtraPlugin.Asset.Add("BalloonGreen" + i, AssetsHelper.CreateTexture("Textures", "Balloons", "BBE_" + i + "Green.png").ToSprite(30));
+                BasePlugin.Asset.Add("BalloonRed" + i, AssetsHelper.CreateTexture("Textures", "Balloons", "BBE_" + i + "Red.png").ToSprite(30));
+                BasePlugin.Asset.Add("BalloonGreen" + i, AssetsHelper.CreateTexture("Textures", "Balloons", "BBE_" + i + "Green.png").ToSprite(30));
             }
 
-            BaldiExtraPlugin.Asset.Add<Sprite>("PaintBase", AssetsHelper.CreateTexture("Textures", "Items", "BBE_Paint.png").ToSprite(10));  
-            BaldiExtraPlugin.Asset.Add<Texture2D>("JohnMusclesGymWall", AssetsHelper.CreateTexture("Textures", "Rooms", "BBE_JohnMusclesGymWall.png"));
-            BaldiExtraPlugin.Asset.Add<Texture2D>("JohnMusclesGymFloor", AssetsHelper.CreateTexture("Textures", "Rooms", "BBE_JohnMusclesGymFloor.png"));
-            BaldiExtraPlugin.Asset.Add<Sprite>("StrawberryStamina", AssetsHelper.CreateTexture("Textures", "Items", "BBE_StrawberryStamina.png").ToSprite());
-            BaldiExtraPlugin.Asset.Add<Sprite>("StrawberryStaminaAndCottonCandy", AssetsHelper.CreateTexture("Textures", "Items", "BBE_StrawberryCottonStamina.png").ToSprite());
-            BaldiExtraPlugin.Asset.Add<Sprite>("GlueResidue", AssetsHelper.CreateTexture("Textures", "Items", "BBE_GlueResidue.png").ToSprite(10));
-            BaldiExtraPlugin.Asset.Add<Sprite>("FireSprite", AssetsHelper.CreateTexture("Textures", "Events", "BBE_Fire.png").ToSprite(20f));
-            BaldiExtraPlugin.Asset.Add<Sprite>("MagicRubyPortal", AssetsHelper.CreateTexture("Textures", "Items", "BBE_MagicRubyPortal.png").ToSprite(20f));
-            BaldiExtraPlugin.Asset.Add<Sprite>("YCTPCanvas", AssetsHelper.CreateTexture("Textures", "Other", "BBE_YCTP.png").ToSprite());
-            BaldiExtraPlugin.Asset.Add<Sprite>("CheckMark", sprites.First(x => x.name == "YCTP_IndicatorsSheet_0"));
-            BaldiExtraPlugin.Asset.Add<Sprite>("CrossMark", sprites.First(x => x.name == "YCTP_IndicatorsSheet_1"));
+            BasePlugin.Asset.Add<Sprite>("PaintBase", AssetsHelper.CreateTexture("Textures", "Items", "BBE_Paint.png").ToSprite(10));  
+            BasePlugin.Asset.Add<Texture2D>("JohnMusclesGymWall", AssetsHelper.CreateTexture("Textures", "Rooms", "BBE_JohnMusclesGymWall.png"));
+            BasePlugin.Asset.Add<Texture2D>("JohnMusclesGymFloor", AssetsHelper.CreateTexture("Textures", "Rooms", "BBE_JohnMusclesGymFloor.png"));
+            BasePlugin.Asset.Add<Sprite>("StrawberryStamina", AssetsHelper.CreateTexture("Textures", "Items", "BBE_StrawberryStamina.png").ToSprite());
+            BasePlugin.Asset.Add<Sprite>("StrawberryStaminaAndCottonCandy", AssetsHelper.CreateTexture("Textures", "Items", "BBE_StrawberryCottonStamina.png").ToSprite());
+            BasePlugin.Asset.Add<Sprite>("GlueResidue", AssetsHelper.CreateTexture("Textures", "Items", "BBE_GlueResidue.png").ToSprite(10));
+            BasePlugin.Asset.Add<Sprite>("FireSprite", AssetsHelper.CreateTexture("Textures", "Events", "BBE_Fire.png").ToSprite(20f));
+            BasePlugin.Asset.Add<Sprite>("MagicRubyPortal", AssetsHelper.CreateTexture("Textures", "Items", "BBE_MagicRubyPortal.png").ToSprite(20f));
+            BasePlugin.Asset.Add<Sprite>("YCTPCanvas", AssetsHelper.CreateTexture("Textures", "Other", "BBE_YCTP.png").ToSprite());
+            BasePlugin.Asset.Add<Sprite>("CheckMark", sprites.First(x => x.name == "YCTP_IndicatorsSheet_0"));
+            BasePlugin.Asset.Add<Sprite>("CrossMark", sprites.First(x => x.name == "YCTP_IndicatorsSheet_1"));
 
-            BaldiExtraPlugin.Asset.Add("GrapplingHookSprite", sprites.First(x => x.name == "GrapplingHookSprite"));
-            BaldiExtraPlugin.Asset.Add("GrappleCracks", sprites.First(x => x.name == "GrappleCracks"));
+            BasePlugin.Asset.Add("GrapplingHookSprite", sprites.First(x => x.name == "GrapplingHookSprite"));
+            BasePlugin.Asset.Add("GrappleCracks", sprites.First(x => x.name == "GrappleCracks"));
 
-            BaldiExtraPlugin.Asset.Add<Sprite>("YTPMapIcon", AssetsHelper.CreateTexture("Textures", "MapIcons", "BBE_Points.png").ToSprite(16f));
-            BaldiExtraPlugin.Asset.Add<Sprite>("DSODASpray", AssetsHelper.CreateTexture("Textures", "Items", "BBE_DSODASpray.png").ToSprite(50));
-            BaldiExtraPlugin.Asset.Add<Texture2D>("ElevatorCounterIconSheet", AssetsHelper.CreateTexture("Textures", "Other", "BBE_ElevatorIconSheet.png"));
-            BaldiExtraPlugin.Asset.Add<Texture2D>("NotebookCounterIconSheet", AssetsHelper.LoadAsset<Texture2D>("NotebookIcon_Sheet").CopyTexture());
-            BaldiExtraPlugin.Asset.Add<Texture2D>("NotEqualMMDefault", AssetsHelper.CreateTexture("Textures", "Objects", "BBE_NotEqualMMFrontDefault.png"));
-            BaldiExtraPlugin.Asset.Add<Texture2D>("NotEqualMMRight", AssetsHelper.CreateTexture("Textures", "Objects", "BBE_NotEqualMMFrontRight.png"));
-            BaldiExtraPlugin.Asset.Add<Texture2D>("NotEqualMMWrong", AssetsHelper.CreateTexture("Textures", "Objects", "BBE_NotEqualMMFrontWrong.png"));
+            BasePlugin.Asset.Add<Sprite>("YTPMapIcon", AssetsHelper.CreateTexture("Textures", "MapIcons", "BBE_Points.png").ToSprite(16f));
+            BasePlugin.Asset.Add<Sprite>("DSODASpray", AssetsHelper.CreateTexture("Textures", "Items", "BBE_DSODASpray.png").ToSprite(50));
+            BasePlugin.Asset.Add<Texture2D>("ElevatorCounterIconSheet", AssetsHelper.CreateTexture("Textures", "Other", "BBE_ElevatorIconSheet.png"));
+            BasePlugin.Asset.Add<Texture2D>("NotebookCounterIconSheet", AssetsHelper.LoadAsset<Texture2D>("NotebookIcon_Sheet").CopyTexture());
+            BasePlugin.Asset.Add<Texture2D>("NotEqualMMDefault", AssetsHelper.CreateTexture("Textures", "Objects", "BBE_NotEqualMMFrontDefault.png"));
+            BasePlugin.Asset.Add<Texture2D>("NotEqualMMRight", AssetsHelper.CreateTexture("Textures", "Objects", "BBE_NotEqualMMFrontRight.png"));
+            BasePlugin.Asset.Add<Texture2D>("NotEqualMMWrong", AssetsHelper.CreateTexture("Textures", "Objects", "BBE_NotEqualMMFrontWrong.png"));
 
-            BaldiExtraPlugin.Asset.Add<Sprite>("NOSignItem", AssetsHelper.CreateTexture("Textures", "Items", "BBE_NoSign.png").FlipByX().ToSprite(20f));
-            BaldiExtraPlugin.Asset.Add<Sprite>("TapePlayerIcon", AssetsHelper.CreateTexture("Textures", "MapIcons", "BBE_TapePlayer.png").ToSprite(16f));
-            BaldiExtraPlugin.Asset.Add<Sprite>("VentIcon", AssetsHelper.CreateTexture("Textures", "MapIcons", "BBE_Vent.png").ToSprite(16f));
-            BaldiExtraPlugin.Asset.Add<Sprite>("RubyClockIcon", AssetsHelper.CreateTexture("Textures", "MapIcons", "BBE_RubyClockIcon.png").ToSprite(5));
+            BasePlugin.Asset.Add<Sprite>("NOSignItem", AssetsHelper.CreateTexture("Textures", "Items", "BBE_NoSign.png").FlipByX().ToSprite(20f));
+            BasePlugin.Asset.Add<Sprite>("TapePlayerIcon", AssetsHelper.CreateTexture("Textures", "MapIcons", "BBE_TapePlayer.png").ToSprite(16f));
+            BasePlugin.Asset.Add<Sprite>("VentIcon", AssetsHelper.CreateTexture("Textures", "MapIcons", "BBE_Vent.png").ToSprite(16f));
+            BasePlugin.Asset.Add<Sprite>("RubyClockIcon", AssetsHelper.CreateTexture("Textures", "MapIcons", "BBE_RubyClockIcon.png").ToSprite(5));
 
-            BaldiExtraPlugin.Asset.Add<Texture2D>("NotebookDoorMaterial", AssetsHelper.CreateTexture("Textures", "Objects", "BBE_NotebookDoor.png"));
-            BaldiExtraPlugin.Asset.Add<Texture2D>("YTPDoorMaterial", AssetsHelper.CreateTexture("Textures", "Objects", "BBE_YTPDoor.png"));
-            BaldiExtraPlugin.Asset.Add<Sprite>("DashPadPlaced", AssetsHelper.CreateTexture("Textures", "Items", "BBE_DashPadPlaced.png").ToSprite(20));
-            BaldiExtraPlugin.Asset.Add<Sprite>("FunSettingUnlockedBG", AssetsHelper.CreateTexture("Textures", "Other", "BBE_FunSettingUnlockedBG.png").ToSprite());
+            BasePlugin.Asset.Add<Texture2D>("NotebookDoorMaterial", AssetsHelper.CreateTexture("Textures", "Objects", "BBE_NotebookDoor.png"));
+            BasePlugin.Asset.Add<Texture2D>("YTPDoorMaterial", AssetsHelper.CreateTexture("Textures", "Objects", "BBE_YTPDoor.png"));
+            BasePlugin.Asset.Add<Sprite>("DashPadPlaced", AssetsHelper.CreateTexture("Textures", "Items", "BBE_DashPadPlaced.png").ToSprite(20));
+            BasePlugin.Asset.Add<Sprite>("FunSettingUnlockedBG", AssetsHelper.CreateTexture("Textures", "Other", "BBE_FunSettingUnlockedBG.png").ToSprite());
 
-            BaldiExtraPlugin.Asset.Add("ChessTileBrown", ChessBoard.GetTilePixels(AssetsHelper.CreateTexture("Textures", "NPCs", "Stockfish", "BBE_ChessTileBrown.png")));
-            BaldiExtraPlugin.Asset.Add("ChessTileGray", ChessBoard.GetTilePixels(AssetsHelper.CreateTexture("Textures", "NPCs", "Stockfish", "BBE_ChessTileGray.png")));
-            BaldiExtraPlugin.Asset.Add<Sprite>("ChessWhitePoint", AssetsHelper.CreateTexture("Textures", "NPCs", "Stockfish", "BBE_ItsJustPoint.png").ToSprite(10));
+            BasePlugin.Asset.Add("ChessTileBrown", ChessBoard.GetTilePixels(AssetsHelper.CreateTexture("Textures", "NPCs", "Stockfish", "BBE_ChessTileBrown.png")));
+            BasePlugin.Asset.Add("ChessTileGray", ChessBoard.GetTilePixels(AssetsHelper.CreateTexture("Textures", "NPCs", "Stockfish", "BBE_ChessTileGray.png")));
+            BasePlugin.Asset.Add<Sprite>("ChessWhitePoint", AssetsHelper.CreateTexture("Textures", "NPCs", "Stockfish", "BBE_ItsJustPoint.png").ToSprite(10));
 
-            BaldiExtraPlugin.Asset.Add<Sprite>("ChessBoard", ChessBoard.GenerateBoardSprite());
+            BasePlugin.Asset.Add<Sprite>("ChessBoard", ChessBoard.GenerateBoardSprite());
 
-            BaldiExtraPlugin.Asset.AddRange<Sprite>(AssetsHelper.CreateSpriteSheet(6, 1, 10, "Textures", "NPCs", "Stockfish", "BBE_BlackChessPieces.png"), new string[] 
+            BasePlugin.Asset.AddRange<Sprite>(AssetsHelper.CreateSpriteSheet(6, 1, 10, "Textures", "NPCs", "Stockfish", "BBE_BlackChessPieces.png"), new string[] 
             {
                 "blackpawn",
                 "blackrook",
@@ -78,7 +78,7 @@ namespace BBE.Creators
                 "blackqueen",
                 "blackking"
             });
-            BaldiExtraPlugin.Asset.AddRange<Sprite>(AssetsHelper.CreateSpriteSheet(6, 1, 10, "Textures", "NPCs", "Stockfish", "BBE_WhiteChessPieces.png"), new string[]
+            BasePlugin.Asset.AddRange<Sprite>(AssetsHelper.CreateSpriteSheet(6, 1, 10, "Textures", "NPCs", "Stockfish", "BBE_WhiteChessPieces.png"), new string[]
             {
                 "whitepawn",
                 "whiterook",
@@ -87,43 +87,43 @@ namespace BBE.Creators
                 "whitequeen",
                 "whiteking"
             });
-            BaldiExtraPlugin.Asset.AddFromResources<StandardDoorMats>("ClassDoorSet");
+            BasePlugin.Asset.AddFromResources<StandardDoorMats>("ClassDoorSet");
 
             arrows = sprites.Where(x => x.texture.name == "BackArrow").ToArray();
-            BaldiExtraPlugin.Asset.Add<Sprite>("BackArrow1", arrows[0]);
-            BaldiExtraPlugin.Asset.Add<Sprite>("BackArrow2", arrows[1]);
+            BasePlugin.Asset.Add<Sprite>("BackArrow1", arrows[0]);
+            BasePlugin.Asset.Add<Sprite>("BackArrow2", arrows[1]);
         }
         public static void CreateSounds()
         {
-            BaldiExtraPlugin.Asset.AddFromResources<SoundObject>("Ben_Splat");
-            BaldiExtraPlugin.Asset.AddFromResources<SoundObject>("Scissors");
-            BaldiExtraPlugin.Asset.AddFromResources<AudioClip>("GrappleLoop");
-            BaldiExtraPlugin.Asset.AddFromResources<SoundObject>("GrappleLaunch");
-            BaldiExtraPlugin.Asset.AddFromResources<SoundObject>("GrappleClang");
-            BaldiExtraPlugin.Asset.AddFromResources<SoundObject>("BAL_Break");
-            BaldiExtraPlugin.Asset.AddFromResources<SoundObject>("Teleport");
-            BaldiExtraPlugin.Asset.AddFromResources<SoundObject>("Bang");
-            BaldiExtraPlugin.Asset.AddFromResources<SoundObject>("BAL_Wow");
-            BaldiExtraPlugin.Asset.Add<AudioClip>("DeafSound", AssetsHelper.AudioFromFile("Audio", "Events", "Starts", "BBE_SoundEvent.mp3"));
-            BaldiExtraPlugin.Asset.Add<SoundObject>("CollectTwoNotebooks", AssetsHelper.CreateSoundObject(AssetsHelper.AudioFromFile("Audio", "Objects", "BBE_NotebookDoors.wav"), SoundType.Effect, Color.green, subtitleKey: "BBE_CollectTwoNotebooks"));
-            BaldiExtraPlugin.Asset.Add<SoundObject>("PaintSlap", AssetsHelper.CreateSoundObject(AssetsHelper.AudioFromFile("Audio", "NPCs", "BBE_PaintSlap.wav"), SoundType.Effect, ""));
-            BaldiExtraPlugin.Asset.Add<SoundObject>("DashPadPush", AssetsHelper.CreateSoundObject(AssetsHelper.AudioFromFile("Audio", "Items", "BBE_DashPadPush.mp3"), SoundType.Effect, ""));
-            BaldiExtraPlugin.Asset.Add<SoundObject>("IceShock", AssetsHelper.CreateSoundObject(AssetsHelper.AudioFromFile("Audio", "Items", "BBE_IceShock.mp3"), SoundType.Effect, Color.blue, subtitleKey: "BBE_IceBombUsed"));
-            BaldiExtraPlugin.Asset.Add<SoundObject>("FirstPrizeConnectionLost", AssetsHelper.CreateSoundObject(AssetsHelper.AudioFromFile("Audio", "NPCs", "BBE_ConnectionLost.ogg"), SoundType.Voice, color: Color.cyan, sublength: 5, subtitleKey: "BBE_1stprize_ConnectionLost"));
-            BaldiExtraPlugin.Asset.Add<SoundObject>("ElectricityEventStart", AssetsHelper.CreateSoundObject(AssetsHelper.AudioFromFile("Audio", "Events", "BBE_BurstPowerDown.mp3"), SoundType.Effect, ""));
-            BaldiExtraPlugin.Asset.Add<SoundObject>("FireEventStart", AssetsHelper.CreateSoundObject(AssetsHelper.AudioFromFile("Audio", "Events", "BBE_LightFire.mp3"), SoundType.Effect, ""));
-            BaldiExtraPlugin.Asset.Add<SoundObject>("TeleportationEventStart", AssetsHelper.CreateSoundObject(AssetsHelper.AudioFromFile("Audio", "Events", "BBE_EventTCStarted.ogg"), SoundType.Effect, ""));
-            BaldiExtraPlugin.Asset.Add<SoundObject>("GravityDeviceTimer", AssetsHelper.CreateSoundObject(AssetsHelper.AudioFromFile("Audio", "Items", "BBE_GravityDeviceTime.mp3"), SoundType.Effect, ""));
-            BaldiExtraPlugin.Asset.Add<SoundObject>("NPCScream", AssetsHelper.CreateSoundObject(AssetsHelper.AudioFromFile("Audio", "NPCs", "BBE_Scream.wav"), SoundType.Voice, ""));
+            BasePlugin.Asset.AddFromResources<SoundObject>("Ben_Splat");
+            BasePlugin.Asset.AddFromResources<SoundObject>("Scissors");
+            BasePlugin.Asset.AddFromResources<AudioClip>("GrappleLoop");
+            BasePlugin.Asset.AddFromResources<SoundObject>("GrappleLaunch");
+            BasePlugin.Asset.AddFromResources<SoundObject>("GrappleClang");
+            BasePlugin.Asset.AddFromResources<SoundObject>("BAL_Break");
+            BasePlugin.Asset.AddFromResources<SoundObject>("Teleport");
+            BasePlugin.Asset.AddFromResources<SoundObject>("Bang");
+            BasePlugin.Asset.AddFromResources<SoundObject>("BAL_Wow");
+            BasePlugin.Asset.Add<AudioClip>("DeafSound", AssetsHelper.AudioFromFile("Audio", "Events", "Starts", "BBE_SoundEvent.mp3"));
+            BasePlugin.Asset.Add<SoundObject>("CollectTwoNotebooks", AssetsHelper.CreateSoundObject(AssetsHelper.AudioFromFile("Audio", "Objects", "BBE_NotebookDoors.wav"), SoundType.Effect, Color.green, subtitleKey: "BBE_CollectTwoNotebooks"));
+            BasePlugin.Asset.Add<SoundObject>("PaintSlap", AssetsHelper.CreateSoundObject(AssetsHelper.AudioFromFile("Audio", "NPCs", "BBE_PaintSlap.wav"), SoundType.Effect, ""));
+            BasePlugin.Asset.Add<SoundObject>("DashPadPush", AssetsHelper.CreateSoundObject(AssetsHelper.AudioFromFile("Audio", "Items", "BBE_DashPadPush.mp3"), SoundType.Effect, ""));
+            BasePlugin.Asset.Add<SoundObject>("IceShock", AssetsHelper.CreateSoundObject(AssetsHelper.AudioFromFile("Audio", "Items", "BBE_IceShock.mp3"), SoundType.Effect, Color.blue, subtitleKey: "BBE_IceBombUsed"));
+            BasePlugin.Asset.Add<SoundObject>("FirstPrizeConnectionLost", AssetsHelper.CreateSoundObject(AssetsHelper.AudioFromFile("Audio", "NPCs", "BBE_ConnectionLost.ogg"), SoundType.Voice, color: Color.cyan, sublength: 5, subtitleKey: "BBE_1stprize_ConnectionLost"));
+            BasePlugin.Asset.Add<SoundObject>("ElectricityEventStart", AssetsHelper.CreateSoundObject(AssetsHelper.AudioFromFile("Audio", "Events", "BBE_BurstPowerDown.mp3"), SoundType.Effect, ""));
+            BasePlugin.Asset.Add<SoundObject>("FireEventStart", AssetsHelper.CreateSoundObject(AssetsHelper.AudioFromFile("Audio", "Events", "BBE_LightFire.mp3"), SoundType.Effect, ""));
+            BasePlugin.Asset.Add<SoundObject>("TeleportationEventStart", AssetsHelper.CreateSoundObject(AssetsHelper.AudioFromFile("Audio", "Events", "BBE_EventTCStarted.ogg"), SoundType.Effect, ""));
+            BasePlugin.Asset.Add<SoundObject>("GravityDeviceTimer", AssetsHelper.CreateSoundObject(AssetsHelper.AudioFromFile("Audio", "Items", "BBE_GravityDeviceTime.mp3"), SoundType.Effect, ""));
+            BasePlugin.Asset.Add<SoundObject>("NPCScream", AssetsHelper.CreateSoundObject(AssetsHelper.AudioFromFile("Audio", "NPCs", "BBE_Scream.wav"), SoundType.Voice, ""));
             for (int i = 1; i<=10; i++)
             {
-                BaldiExtraPlugin.Asset.AddFromResources<SoundObject>("BAL_Count" + i);
+                BasePlugin.Asset.AddFromResources<SoundObject>("BAL_Count" + i);
             }
             AudioClip empty = AudioClip.Create("EmptyAudioClip", 1, 1, 22050, false);
             empty.SetData(new float[] { 1 }, 0);
-            BaldiExtraPlugin.Asset.Add<SoundObject>("EmptyVoiceSoundObject", AssetsHelper.CreateSoundObject(empty, SoundType.Voice, Color.clear, 0));
-            BaldiExtraPlugin.Asset.Add<SoundObject>("EmptyEffectSoundObject", AssetsHelper.CreateSoundObject(empty, SoundType.Effect, Color.clear, 0));
-            BaldiExtraPlugin.Asset.Add<SoundObject>("EmptyMusicSoundObject", AssetsHelper.CreateSoundObject(empty, SoundType.Music, Color.clear, 0));
+            BasePlugin.Asset.Add<SoundObject>("EmptyVoiceSoundObject", AssetsHelper.CreateSoundObject(empty, SoundType.Voice, Color.clear, 0));
+            BasePlugin.Asset.Add<SoundObject>("EmptyEffectSoundObject", AssetsHelper.CreateSoundObject(empty, SoundType.Effect, Color.clear, 0));
+            BasePlugin.Asset.Add<SoundObject>("EmptyMusicSoundObject", AssetsHelper.CreateSoundObject(empty, SoundType.Music, Color.clear, 0));
         }
         public static void CreatePrefabs()
         {
@@ -190,7 +190,7 @@ namespace BBE.Creators
                 elevatorScreen.OnLoadReady += value;
                 elevatorScreen.Initialize();
             });*/
-            new FunSettingBuilder(BaldiExtraPlugin.Instance.Info, "BBE_HardModeFunSetting")
+            new FunSettingBuilder(BasePlugin.Instance.Info, "BBE_HardModeFunSetting")
                 .SetName("BBE_HardModeFunSetting")
                 .SetEnum(FunSettingsType.HardMode)
                 .SetDescription("BBE_HardModeFunSettingDesc")
@@ -199,7 +199,7 @@ namespace BBE.Creators
                 .SetEditorIcon(AssetsHelper.CreateTexture("Textures", "EditorIcons", "BBE_FunSettingHardMode.png"))
                 .Build<HardModeFunSetting>();
 
-            new FunSettingBuilder(BaldiExtraPlugin.Instance.Info, "BBE_LightsOutFunSetting")
+            new FunSettingBuilder(BasePlugin.Instance.Info, "BBE_LightsOutFunSetting")
                 .SetName("BBE_LightsOutFunSetting")
                 .SetEnum(FunSettingsType.LightsOut)
                 .SetDescription("BBE_LightsOutFunSettingDesc")
@@ -217,35 +217,35 @@ namespace BBE.Creators
                 .SetEditorIcon(AssetsHelper.CreateTexture("Textures", "EditorIcons", "BBE_FunSettingMirrored.png"))
                 .Build<MirroredFunSetting>();*/
 
-            new FunSettingBuilder(BaldiExtraPlugin.Instance.Info, "BBE_FastModeFunSetting")
+            new FunSettingBuilder(BasePlugin.Instance.Info, "BBE_FastModeFunSetting")
                 .SetName("BBE_FastModeFunSetting")
                 .SetEnum(FunSettingsType.FastMode)
                 .SetDescription("BBE_FastModeFunSettingDesc")
                 .SetEditorIcon(AssetsHelper.CreateTexture("Textures", "EditorIcons", "BBE_FunSettingFastMode.png"))
                 .Build<FastModeFunSetting>();
 
-            new FunSettingBuilder(BaldiExtraPlugin.Instance.Info, "BBE_ChaosModeFunSetting")
+            new FunSettingBuilder(BasePlugin.Instance.Info, "BBE_ChaosModeFunSetting")
                 .SetName("BBE_ChaosModeFunSetting")
                 .SetEnum(FunSettingsType.ChaosMode)
                 .SetDescription("BBE_ChaosModeFunSettingDesc")
                 .SetEditorIcon(AssetsHelper.CreateTexture("Textures", "EditorIcons", "BBE_FunSettingChaosMode.png"))
                 .Build<ChaosModeFunSetting>();
 
-            new FunSettingBuilder(BaldiExtraPlugin.Instance.Info, "BBE_QuantumSweepFunSetting")
+            new FunSettingBuilder(BasePlugin.Instance.Info, "BBE_QuantumSweepFunSetting")
                 .SetName("BBE_QuantumSweepFunSetting")
                 .SetEnum(FunSettingsType.QuantumSweep)
                 .SetDescription("BBE_QuantumSweepSettingDesc")
                 .SetEditorIcon(AssetsHelper.CreateTexture("Textures", "EditorIcons", "BBE_FunSettingQuantumSweep.png"))
                 .Build<QuantumSweepFunSetting>();
 
-            new FunSettingBuilder(BaldiExtraPlugin.Instance.Info, "BBE_YCTPFunSetting")
+            new FunSettingBuilder(BasePlugin.Instance.Info, "BBE_YCTPFunSetting")
                 .SetName("BBE_YCTPFunSetting")
                 .SetEnum(FunSettingsType.YCTP)
                 .SetDescription("BBE_YCTPFunSettingDesc")
                 .SetEditorIcon(AssetsHelper.CreateTexture("Textures", "EditorIcons", "BBE_FunSettingYCTP.png"))
                 .Build<YCTPFunSetting>();
 
-            new FunSettingBuilder(BaldiExtraPlugin.Instance.Info, "BBE_HardModePlusFunSetting")
+            new FunSettingBuilder(BasePlugin.Instance.Info, "BBE_HardModePlusFunSetting")
                 .SetName("BBE_HardModePlusFunSetting")
                 .SetEnum(FunSettingsType.HardModePlus)
                 .SetDescription("BBE_HardModePlusFunSettingDesc")
@@ -255,14 +255,14 @@ namespace BBE.Creators
                 .SetEditorIcon(AssetsHelper.CreateTexture("Textures", "EditorIcons", "BBE_FunSettingHardModePlus.png"))
                 .Build<HardModePlusFunSetting>();
 
-            new FunSettingBuilder(BaldiExtraPlugin.Instance.Info, "BBE_LethalTouchFunSetting")
+            new FunSettingBuilder(BasePlugin.Instance.Info, "BBE_LethalTouchFunSetting")
                 .SetName("BBE_LethalTouchFunSetting")
                 .SetEnum(FunSettingsType.LethalTouch)
                 .SetDescription("BBE_LethalTouchFunSettingDesc")
                 .SetEditorIcon(AssetsHelper.CreateTexture("Textures", "EditorIcons", "BBE_FunSettingLethalTouch.png"))
                 .Build<LethalTouchFunSetting>();
 
-            new FunSettingBuilder(BaldiExtraPlugin.Instance.Info, "BBE_HookFunSetting")
+            new FunSettingBuilder(BasePlugin.Instance.Info, "BBE_HookFunSetting")
                 .SetName("BBE_HookFunSetting")
                 .SetEnum(FunSettingsType.Hook)
                 .SetDescription("BBE_HookFunSettingDesc")
@@ -270,7 +270,7 @@ namespace BBE.Creators
                 .SetEditorIcon(AssetsHelper.CreateTexture("Textures", "EditorIcons", "BBE_FunSettingHook.png"))
                 .Build<HookFunSetting>();
 
-            new FunSettingBuilder(BaldiExtraPlugin.Instance.Info, "BBE_CSSEAFSFunSetting")
+            new FunSettingBuilder(BasePlugin.Instance.Info, "BBE_CSSEAFSFunSetting")
                 .SetName("BBE_CSSEAFSFunSetting")
                 .SetEnum(FunSettingsType.CSSEAFS)
                 .SetDescription("BBE_CSSEAFSFunSettingDesc")
@@ -281,7 +281,7 @@ namespace BBE.Creators
                 .SetEditorIcon(AssetsHelper.CreateTexture("Textures", "EditorIcons", "BBE_FunSettingCSSEAFS.png"))
                 .Build<CSSSEAFSFunSetting>();
 
-            new FunSettingBuilder(BaldiExtraPlugin.Instance.Info, "BBE_RandomItems")
+            new FunSettingBuilder(BasePlugin.Instance.Info, "BBE_RandomItems")
                 .SetName("BBE_RandomItems")
                 .SetEnum(FunSettingsType.RandomItems)
                 .SetDescription("BBE_RandomItemsDesc")
@@ -289,14 +289,14 @@ namespace BBE.Creators
                 .SetEditorIcon(AssetsHelper.CreateTexture("Textures", "EditorIcons", "BBE_FunSettingRandomItems.png"))
                 .Build<RandomItemFunSetting>();
 
-            new FunSettingBuilder(BaldiExtraPlugin.Instance.Info, "BBE_AllKnowingPrincipalFunSetting")
+            new FunSettingBuilder(BasePlugin.Instance.Info, "BBE_AllKnowingPrincipalFunSetting")
                 .SetName("BBE_AllKnowingPrincipalFunSetting")
                 .SetEnum(FunSettingsType.AllKnowingPrincipal)
                 .SetDescription("BBE_AllKnowingPrincipalFunSettingDesc")
                 .SetEditorIcon(AssetsHelper.CreateTexture("Textures", "EditorIcons", "BBE_FunSettingAllKnowingPrincipal.png"))
                 .Build<AllKnowingPrincipalFunSetting>();
 
-            new FunSettingBuilder(BaldiExtraPlugin.Instance.Info, "BBE_DVDModeFunSetting")
+            new FunSettingBuilder(BasePlugin.Instance.Info, "BBE_DVDModeFunSetting")
                 .SetName("BBE_DVDModeFunSetting")
                 .SetEnum(FunSettingsType.DVDMode)
                 .Hide()
@@ -309,7 +309,7 @@ namespace BBE.Creators
         public static MapIcon CreateMapIcon(MapIcon prefab, string name, string spr) =>
             CreateMapIcon(prefab, name, spr);
         public static T CreateMapIcon<T>(T prefab, string name, string spr) where T : MapIcon =>
-            CreateMapIcon<T>(prefab, name, BaldiExtraPlugin.Asset.Get<Sprite>(spr));
+            CreateMapIcon<T>(prefab, name, BasePlugin.Asset.Get<Sprite>(spr));
         public static MapIcon CreateMapIcon(MapIcon prefab, string name, Sprite spr = null) =>
             CreateMapIcon(prefab, name, spr);
         public static T CreateMapIcon<T>(T prefab, string name, Sprite spr = null) where T : MapIcon
@@ -325,9 +325,9 @@ namespace BBE.Creators
             return icon;
         }
         public static MapIcon CreateMapIcon(string key, string name) =>
-            CreateMapIcon(BaldiExtraPlugin.Asset.Get<Sprite>(key), name);
+            CreateMapIcon(BasePlugin.Asset.Get<Sprite>(key), name);
         public static T CreateMapIcon<T>(string key, string name) where T : MapIcon => 
-            CreateMapIcon<T>(BaldiExtraPlugin.Asset.Get<Sprite>(key), name);
+            CreateMapIcon<T>(BasePlugin.Asset.Get<Sprite>(key), name);
         public static MapIcon CreateMapIcon(Sprite spr, string name) => CreateMapIcon<MapIcon>(spr, name); 
         public static T CreateMapIcon<T>(Sprite spr, string name) where T : MapIcon
         {

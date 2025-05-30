@@ -19,9 +19,9 @@ namespace BBE.Events.HookChaos
 
         private static Material lineMaterial = AssetsHelper.LoadAsset<Material>("BlackBehind");
 
-        private static Sprite hookSprite = BaldiExtraPlugin.Asset.GetOrAddFromResources<Sprite>("GrapplingHookSprite");
+        private static Sprite hookSprite = BasePlugin.Asset.GetOrAddFromResources<Sprite>("GrapplingHookSprite");
 
-        private static Sprite cracksSprite = BaldiExtraPlugin.Asset.GetOrAddFromResources<Sprite>("GrappleCracks");
+        private static Sprite cracksSprite = BasePlugin.Asset.GetOrAddFromResources<Sprite>("GrappleCracks");
 
         private float speed = 300f;
 
@@ -122,7 +122,7 @@ namespace BBE.Events.HookChaos
 
             motorAudio = new GameObject("motorAudio").AddComponent<AudioSource>();
             motorAudio.loop = true;
-            motorAudio.clip = BaldiExtraPlugin.Asset.GetOrAddFromResources<AudioClip>("GrappleLoopSound");
+            motorAudio.clip = BasePlugin.Asset.GetOrAddFromResources<AudioClip>("GrappleLoopSound");
             motorAudio.transform.parent = transform;
             motorAudio.spatialBlend = 1f;
             motorAudio.maxDistance = 500f;

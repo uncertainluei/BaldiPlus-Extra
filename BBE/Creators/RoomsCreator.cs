@@ -268,8 +268,8 @@ namespace BBE.Creators
             }
             catch (Exception exception)
             {
-                BaldiExtraPlugin.Logger.LogWarning("Failed to load a room coming from the cbld: " + path);
-                BaldiExtraPlugin.Logger.LogError(exception);
+                BasePlugin.Logger.LogWarning("Failed to load a room coming from the cbld: " + path);
+                BasePlugin.Logger.LogError(exception);
                 return result;
             }
             finally
@@ -281,7 +281,7 @@ namespace BBE.Creators
             RegisterRoom(name, AssetsHelper.ColorFromHex(color));
         public static RoomSettings RegisterRoom(string name, Color color)
         {
-            RoomSettings settings = new RoomSettings(RoomCategory.Special, name.ToEnum<RoomType>(), color, BaldiExtraPlugin.Asset.Get<StandardDoorMats>("ClassDoorSet"));
+            RoomSettings settings = new RoomSettings(RoomCategory.Special, name.ToEnum<RoomType>(), color, BasePlugin.Asset.Get<StandardDoorMats>("ClassDoorSet"));
             PlusLevelLoaderPlugin.Instance.roomSettings.Add(name, settings);
             return settings;
         }
@@ -328,13 +328,13 @@ namespace BBE.Creators
         }
         public static RoomFunctionContainer CreateContainer(string name = null)
         {
-            if (BaldiExtraPlugin.Asset.Exists<RoomFunctionContainer>(name, out RoomFunctionContainer res))
+            if (BasePlugin.Asset.Exists<RoomFunctionContainer>(name, out RoomFunctionContainer res))
                 return res;
             res = new GameObject(name).AddComponent<RoomFunctionContainer>();
             res.name = name;
             res.gameObject.ConvertToPrefab(true);
             if (!name.EmptyOrNull())
-                BaldiExtraPlugin.Asset.Add<RoomFunctionContainer>(name, res);
+                BasePlugin.Asset.Add<RoomFunctionContainer>(name, res);
             return res;
         }
         public static void CreateRooms()
