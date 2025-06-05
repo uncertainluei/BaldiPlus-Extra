@@ -69,10 +69,11 @@ namespace BBE.NPCs.Chess
 
         public static Sprite GenerateBoardSprite()
         {
-            Texture2D result = new Texture2D(Constants.CHESS_TILE_SIZE * 8, Constants.CHESS_TILE_SIZE * 8);
-            for (int x = 0; x < 512; x+=Constants.CHESS_TILE_SIZE)
+            Texture2D result = new Texture2D(Constants.CHESS_TILE_SIZE * 8, Constants.CHESS_TILE_SIZE * 8, TextureFormat.RGB24, false);
+            result.filterMode = FilterMode.Point;
+            for (int x = 0; x < result.width; x+=Constants.CHESS_TILE_SIZE)
             {
-                for (int y = 0; y < 512; y += Constants.CHESS_TILE_SIZE)
+                for (int y = 0; y < result.height; y += Constants.CHESS_TILE_SIZE)
                 {
                     int file = x / Constants.CHESS_TILE_SIZE + 1;
                     int rank = y / Constants.CHESS_TILE_SIZE + 1;
@@ -94,9 +95,7 @@ namespace BBE.NPCs.Chess
             return cursor.transform.localPosition.x >= rect.x && cursor.transform.localPosition.x <= rect.z &&
                 cursor.transform.localPosition.y >= rect.y && cursor.transform.localPosition.y <= rect.w;
         }
-        private void Start() 
-        {
-        }
+
         public IEnumerator MakeMove(Move move, float time)
         {
             cursorController.image.color = cursorController.image.color.Change(a: 0.5f);
