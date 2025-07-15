@@ -144,6 +144,7 @@ namespace BBE.Creators
             //ObjectBuilderCustomData.AddBuilder(ModdedGenericHallBuilders.StrawberryZestyMachine, CreateObjects.CreateGenericHallBuilder(1, 2, machine.gameObject));
             //CustomSwingDoor.AddBuilder(ModdedGenericHallBuilders.NotebookDoor, NotebookDoor.Create());
         }
+        /*
         public static void CreateFunSettings()
         {
             BaldiBasicsExtraApi.AddCheatCodeToYCTP(12032023, (x) =>
@@ -155,7 +156,7 @@ namespace BBE.Creators
                 x.playerAnswer.text = "";
                 x.solveText.text = "";
             });
-            /*BaldiBasicsExtraApi.AddCheatCodeToYCTP(2310, (YCTP yctp) =>
+            BaldiBasicsExtraApi.AddCheatCodeToYCTP(2310, (YCTP yctp) =>
             {
                 BinaryReader binaryReader = new BinaryReader(File.OpenRead(AssetsHelper.ModPath + "Room/RostChallenge.cbld"));
                 Level level = binaryReader.ReadLevel();
@@ -189,7 +190,7 @@ namespace BBE.Creators
                 };
                 elevatorScreen.OnLoadReady += value;
                 elevatorScreen.Initialize();
-            });*/
+            });
             new FunSettingBuilder(BasePlugin.Instance.Info, "BBE_HardModeFunSetting")
                 .SetName("BBE_HardModeFunSetting")
                 .SetEnum(FunSettingsType.HardMode)
@@ -207,7 +208,7 @@ namespace BBE.Creators
                 .Lock(false)
                 .SetEditorIcon(AssetsHelper.CreateTexture("Textures", "EditorIcons", "BBE_FunSettingLightsOut.png"))
                 .Build<LightsOutFunSetting>();
-            /*
+
             new FunSettingBuilder(BasePlugin.Instance.Info, "BBE_MirroredFunSetting")
                 .SetName("BBE_MirroredFunSetting")
                 .SetEnum(FunSettingsType.Mirrored)
@@ -215,7 +216,7 @@ namespace BBE.Creators
                 .SetLockedDescription("BBE_BeatHideAndSeek")
                 .Lock(false)
                 .SetEditorIcon(AssetsHelper.CreateTexture("Textures", "EditorIcons", "BBE_FunSettingMirrored.png"))
-                .Build<MirroredFunSetting>();*/
+                .Build<MirroredFunSetting>();
 
             new FunSettingBuilder(BasePlugin.Instance.Info, "BBE_FastModeFunSetting")
                 .SetName("BBE_FastModeFunSetting")
@@ -302,7 +303,7 @@ namespace BBE.Creators
                 .Hide()
                 .SetDescription("BBE_DVDModeFunSettingDesc")
                 .Build<DVDModeFunSetting>();
-        }
+        }*/
     }
     class CreateObjects
     {

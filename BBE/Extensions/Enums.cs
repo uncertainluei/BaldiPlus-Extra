@@ -32,26 +32,6 @@ namespace BBE.Extensions
         EntityCollision,
         PrincipalLooker
     }
-    public enum FunSettingsType
-    {
-        HardMode,
-        LightsOut,
-        Mirrored,
-        ChaosMode,
-        YCTP,
-        LethalTouch,
-        FastMode,
-        Hook,
-        QuantumSweep,
-        HardModePlus,
-        AllKnowingPrincipal,
-        CSSEAFS,
-        Party,
-        RandomItems,
-        BadMap,
-        DVDMode,
-        None
-    }
     public enum ModdedRandomEvent
     {
         TeleportationChaos,

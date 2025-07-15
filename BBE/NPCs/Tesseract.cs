@@ -18,8 +18,6 @@ namespace BBE.NPCs
             get
             {
                 float time = 15f;
-                if (FunSettingsType.HardModePlus.IsActive())
-                    time += 5;
                 return time;
             }
         }

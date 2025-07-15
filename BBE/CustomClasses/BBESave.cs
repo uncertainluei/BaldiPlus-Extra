@@ -61,8 +61,6 @@ namespace BBE.CustomClasses
         }
         public void PerfectSave()
         {
-            foreach (FunSetting fun in FunSetting.GetAll())
-                fun.Unlock();
             //BaseCompat.Get<AchievementsCompat>()?.UnlockAll();
         }
     }

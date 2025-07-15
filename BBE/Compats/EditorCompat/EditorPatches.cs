@@ -88,15 +88,6 @@ namespace BBE.Compats.EditorCompat
             __instance.defaultTextures.Add("BBEOldLibrary", new TextureContainer("BlueCarpet", "BBEOldLibraryWall", "Ceiling"));
             __instance.defaultTextures.Add("BBEOldLibraryRNG", new TextureContainer("BlueCarpet", "BBEOldLibraryWall", "Ceiling"));
         }
-        [HarmonyPatch(typeof(DeleteTool), nameof(DeleteTool.OnDrop))]
-        [HarmonyPostfix]
-        private static void RemoveFunSettings(DeleteTool __instance, IntVector2 vector)
-        {
-            if (FunSettingTool.all.IfExists(x => x.Key == vector, out var data))
-            {
-                BasePlugin.Logger.LogDebug(data.Value.funSetting.ToString());
-            }
-        }
         [HarmonyPatch(typeof(PlusLevelEditor), nameof(PlusLevelEditor.Initialize))]
         [HarmonyPostfix]
         private static void AddData(PlusLevelEditor __instance)

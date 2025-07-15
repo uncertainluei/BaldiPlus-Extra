@@ -149,12 +149,6 @@ namespace BBE.Extensions
         {
             writer.Write(t.ToString());
         }
-        public static bool IsActive(this FunSettingsType setting)
-        {
-            FunSetting s = FunSetting.Get(setting);
-            if (s == null) return false;
-            return s.Value;
-        }
         public static bool IsExtended<T>(this T value) where T : Enum =>
             !IsOriginial(value);
         public static bool IsOriginial<T>(this T value) where T : Enum =>

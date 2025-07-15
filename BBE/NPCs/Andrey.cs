@@ -68,14 +68,7 @@ namespace BBE.NPCs
                 return AssetsHelper.LoadAsset<ITM_PrincipalWhistle>(x => x.audWhistle != null).audWhistle;
             }
         }
-        private int MaxAnnoyCount
-        {
-            get
-            {
-                if (FunSettingsType.HardModePlus.IsActive()) return 5;
-                return 3;
-            }
-        }
+        private int MaxAnnoyCount => 3;
         private int annoyCount = 0;
         [SerializeField]
         private SoundObject studentMistreatingBaldi;

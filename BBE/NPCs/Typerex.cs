@@ -109,7 +109,6 @@ namespace BBE.NPCs
             base.Initialize();
             Setup();
             Navigator.maxSpeed = 0; // NO SPEED
-            if (FunSettingsType.HardModePlus.IsActive()) cellCount = 5;
             cells = ec.AllTilesNoGarbage(false, false).Where(x => x.room.type == RoomType.Hall).ChooseRandom(cellCount).Select(x => x.CenterWorldPosition).ToList();
             behaviorStateMachine.ChangeState(new Typerex_Cooldown(this, this));
         }

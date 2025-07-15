@@ -56,7 +56,6 @@ namespace BBE.Compats
         public static void CreateCompats()
         {
             new AdvancedCompat();
-            new EditorCompat.EditorCompat();
             new LevelLoaderCompat(true);
             //new AchievementsCompat();
             //new RadarCompat("org.aestheticalz.baldi.characterradar");

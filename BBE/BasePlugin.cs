@@ -19,7 +19,6 @@ using System.Reflection;
 using BBE.Extensions;
 using BBE.Compats;
 using UnityEngine.UI;
-using BepInEx.Harmony;
 using System.Linq;
 using BBE.Helpers;
 using BBE.API;
@@ -149,8 +148,6 @@ namespace BBE
             NPCCreator.CreateNPCs();
             yield return "Creating rooms...";
             RoomsCreator.CreateRooms();
-            yield return "Creating fun settings...";
-            Creator.CreateFunSettings();
             yield return "Creating structures...";
             StructuresCreator.CreateStructures();
             yield return "Creating config...";
@@ -166,14 +163,13 @@ namespace BBE
         {
             Harmony = new Harmony("rost.moment.baldiplus.extramod");
             Harmony.TryPatchAll();
-            Harmony.PatchAllInheritingClasses(typeof(Item), nameof(Item.Use), typeof(FunSettingsEffects), nameof(FunSettingsEffects.OnItemUse), PatchesType.Postfix);
             Asset = new AssetManager();
             Logger = BepInEx.Logging.Logger.CreateLogSource("Baldi's Basics Extra");
             if (Instance == null)
             {
                 Instance = this;
             }
-            LoadingEvents.RegisterOnAssetsLoaded(Info, LoadAssets(), false);
+            LoadingEvents.RegisterOnAssetsLoaded(Info, LoadAssets(), LoadingEventOrder.Pre);
             GeneratorManagement.Register(this, GenerationModType.Addend, RegisterDataToGenerator);
             AssetLoader.LoadLocalizationFolder(Path.Combine(AssetsHelper.ModPath, "Language", "English"), Language.English);
             CustomOptionsCore.OnMenuInitialize += (x, y) =>
